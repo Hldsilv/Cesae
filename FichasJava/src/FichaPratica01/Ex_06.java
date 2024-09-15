@@ -21,11 +21,14 @@ public class Ex_06 {
         System.out.println("O primeiro valor é : " + valor4);
         System.out.println("O segundo valor é : " + valor3);
 
-        valor1 = valor2;
-        valor2 =
 
-        System.out.println("O primeiro valor é : " + valor2);
-        System.out.println("O segundo valor é : " + valor1);
+        valor1 = valor1 + valor2;
+        valor2 = valor1 - valor2;
+        valor1 = valor1 - valor2;
+
+
+        System.out.println("O primeiro valor é : " + valor1);
+        System.out.println("O segundo valor é : " + valor2);
         
 
 
