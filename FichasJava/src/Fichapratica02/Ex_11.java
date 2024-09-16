@@ -8,9 +8,30 @@ public class Ex_11 {
         Scanner input = new Scanner(System.in);
 
 
-        int saldo, movimento;
+        int saldo, movimento, saldoAtual,m;
 
-        
+        System.out.println("Introduza saldo médio: ");
+        saldo = input.nextInt();
+
+        System.out.println("Introduza o valor a movimentar: ");
+        movimento = input.nextInt();
+
+        saldoAtual =  saldo + movimento;
+
+        if (saldoAtual < 0 ) {
+
+            System.out.println("Operação inválida. Saldo insuficiente.");
+            System.out.println("Saldo atual: " +saldo);
+        }
+
+else{
+    System.out.println("Saldo atual: " +saldoAtual);
+        }
+
+
+
+
+
 
 
     }
