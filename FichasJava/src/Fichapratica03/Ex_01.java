@@ -11,7 +11,7 @@ public class Ex_01 {
         while (num<=250){
 
             System.out.println(num);
-            num =num+1;
+            num++;
         }
 
 

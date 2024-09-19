@@ -11,8 +11,8 @@ public class Ex_07 {
 
         while (num1<=100){
             System.out.println(num1);
-            num1 = num1+1;
             soma= soma +num1;
+            num1++;
 
 
 

@@ -15,7 +15,7 @@ public class Ex_04 {
         while ( num1 <= numL){
 
             System.out.println(num1);
-            num1= num1+1;
+            num1++; /* num1++ = num1 =num1 +1*/
         }
 
 

@@ -22,7 +22,7 @@ public class Ex_05 {
 
 
             System.out.println(frase);
-            num1= num1+1;
+            num1++;
 
         }
 
