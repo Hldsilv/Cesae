@@ -7,11 +7,17 @@ public class Ex_10 {
 
         Scanner input   =   new Scanner(System.in);
 
-        int var;
+        int var1,i=2;
 
-        System.out.println("blabla");
-        var= input.nextInt();
+        System.out.println("Insira um número maior que 2: ");
+        var1= input.nextInt();
 
+
+while( i<= var1){
+    System.out.println(i);
+    i= i +2;
+
+}
 
 
     }
