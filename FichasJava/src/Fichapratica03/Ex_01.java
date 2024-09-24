@@ -6,7 +6,7 @@ public class Ex_01 {
     public static void main(String[] args) {
 
 
-        int num=1;
+        int num=1;//num = contador
 
         while (num<=250){
 

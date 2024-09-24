@@ -7,27 +7,32 @@ public class Ex_14 {
 
         Scanner input   =   new Scanner(System.in);
 
-        int numInsert,valor1,valor2, i=0;
+        int numInsert,numAnterior,numAtual,contador=0, i=0;
 
         System.out.println("Quantos números deseja inserir: ");
         numInsert= input.nextInt();
+        System.out.println("Introduza um número: ");
+        numAnterior = input.nextInt();
 
 
-
-while( i < numInsert){
+while( i < numInsert-1) {
 
     System.out.println("Introduza um número: ");
-    valor1= input.nextInt();
+    numAtual = input.nextInt();
     i++;
 
+    if (numAtual>numAnterior){
+    contador++;
+    }
 
-//    while(valor2>valor1){
-//        System.out.println("crescente");
-//    }
-
+    numAnterior   = numAtual;
 }
-
-
+    if (contador==i) {
+        System.out.println("Crescente");
+    }
+else{
+        System.out.println("Não é crescente");
+        }
 
     }
 }

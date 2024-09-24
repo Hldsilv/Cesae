@@ -7,7 +7,7 @@ public class Ex_13 {
 
         Scanner input = new Scanner(System.in);
 
-        int horas, minutos, horaf;
+        int horas, minutos;
 
 
         System.out.println("Introduza as Horas: ");
