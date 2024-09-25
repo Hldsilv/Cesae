@@ -17,7 +17,7 @@ public class Ex_07 {
 
 
             }
-        System.out.println(soma);
+        System.out.println("somatório " +soma);
 
 
 

@@ -9,7 +9,7 @@ public class Ex_12 {
 
         int op;
 
-        System.out.println("Selecione uma das opções: \n1 - Criar\n2 - Atualizar\n3 1- Eliminar\n4 - Sair \n");
+        System.out.println("Selecione uma das opções: \n1 - Criar\n2 - Atualizar\n3 - Eliminar\n4 - Sair \n");
         op = input.nextInt();
 
         switch (op){
