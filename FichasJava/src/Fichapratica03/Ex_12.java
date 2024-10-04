@@ -8,7 +8,7 @@ public class Ex_12 {
         Scanner input  = new Scanner(System.in);
 
 
-int valor1=1, i=0 , i1=0, i2=0, i3=0;
+int valor1=0, i=0 , i1=0, i2=0, i3=0;
 
 //        System.out.println("Introduza um número: ");
 //        valor1 = input.nextInt();

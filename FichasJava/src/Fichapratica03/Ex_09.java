@@ -7,11 +7,11 @@ public class Ex_09 {
 
         Scanner input = new Scanner(System.in);
 
-        int v1,contador=0,soma;
-        double media;
+
+        double media,soma, v1 , contador=0;
 
         System.out.println("Introduza um número: ");
-        v1= input.nextInt();
+        v1= input.nextDouble();
         soma=v1;
 
 
@@ -19,18 +19,14 @@ public class Ex_09 {
 
             System.out.println("Introduza um número: ");
 
-            v1= input.nextInt();
+            v1= input.nextDouble();
             soma = soma + v1; /* isto é igual a  soma+= v1;*/
             contador++;
 
 
-
-
-
-
         }
 
-        media = (soma+1.0) / (contador);
+        media = (soma+1.0) / contador;
         System.out.println("A média é: " +media);
 
     }

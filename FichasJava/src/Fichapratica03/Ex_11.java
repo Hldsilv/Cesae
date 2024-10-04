@@ -8,19 +8,19 @@ public class Ex_11 {
         Scanner input = new Scanner(System.in);
 
 
-        int valor1, valor2=0, i;
+        int limite, contador=0, salto;
 
         System.out.println("Introduza um número(variável limite) maior que 0: ");
-        valor1= input.nextInt();
+        limite= input.nextInt();
 
         System.out.println("Introduza um número (salto) mairo que 0: ");
-        i= input.nextInt();
+        salto= input.nextInt();
 
 
-        while( valor2 < valor1){
+        while( contador <= limite){
 
-            System.out.println(valor2);
-            valor2 = valor2+ i;
+            System.out.println(contador);
+            contador = contador+ salto;
 
 
 
