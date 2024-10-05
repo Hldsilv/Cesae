@@ -25,6 +25,7 @@ int soma=0;
         array[9]= input.nextInt();
         array[10]= input.nextInt();
         array[11]= input.nextInt();
+
 for(int i=0; i<array.length; i++) {
     soma = soma + array[i];
 

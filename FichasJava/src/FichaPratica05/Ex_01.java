@@ -11,7 +11,7 @@ public class Ex_01 {
         int [] array = new int [10];
 
         System.out.println( "Insira um número no Array[0]:");
-        array[0] = input.nextInt();
+        array[0]= input.nextInt();
         array[1]= input.nextInt();
         array[2]= input.nextInt();
         array[3]= input.nextInt();
@@ -21,6 +21,7 @@ public class Ex_01 {
         array[7]= input.nextInt();
         array[8]= input.nextInt();
         array[9]= input.nextInt();
+
         System.out.println(Arrays.toString(array));
 
 

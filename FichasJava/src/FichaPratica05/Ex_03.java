@@ -6,28 +6,29 @@ public class Ex_03 {
     public static void main(String[] args) {
         //Escreva um programa que lê um array de tamanho 10 e encontra o maior elemento
 
+Scanner input =new Scanner(System.in);
+int [] array = new int [10];
+        int i, maior,t=0;
 
-        Scanner input =new Scanner(System.in);
-        int [] array = new int [10];
-        int i, menor,num,t=0;
-
-        while(t<10) {
-            System.out.println("Insira um número no Array:");
-            array[t] = input.nextInt();
-            t++;
+    while(t<10) {
+        System.out.println("Insira um número no Array:");
+        array[t] = input.nextInt();
+        t++;
         }
-        menor=array[0];
 
-        for(i=0; i<array.length; i++) {
+    //igualo o maior ao primeiro array e depois vou comparar
+    maior=array[0];
 
-            num=array[i];
+        for(i=1; i<array.length; i++) {
 
-            if(num<menor) {
-           menor= num;
-            }
 
-            }
-        System.out.println("O menor número é: "+menor);
+
+        if(array[i]>maior) {
+        maior= array[i];
+
         }
+        }
+        System.out.println("O maior número é: "+maior);
+
     }
-
+}
