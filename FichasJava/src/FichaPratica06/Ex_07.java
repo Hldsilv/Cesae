@@ -1,4 +1,4 @@
 package FichaPratica06;
 
-public class ex_02 {
+public class Ex_07 {
 }
