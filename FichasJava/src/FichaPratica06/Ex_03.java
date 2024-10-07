@@ -62,12 +62,18 @@ public class Ex_03 {
             int op = i * (i + 1) / 2;
             if (op == num) {
                 triangular = true;
+                break;
             }
         }
-return  triangular;
+        return  triangular;
 
     }
-
+//        for (int i=0; i<=num;i++){  outra maneira de fazer o exercicio E (teria que ter int op=0)
+//            op =  op + i;
+//            if(op==num){
+//                triangular=true;
+//            }
+//        }
     public static void main(String[] args) {
 
     }
