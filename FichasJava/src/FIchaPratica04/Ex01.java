@@ -8,7 +8,7 @@ public class Ex01 {
         Scanner input = new Scanner(System.in);
 
 
-        int num1,num2,soma, sub, multi, divi;
+        double num1,num2,soma, sub, multi, divi;
         String opcao,cont;
         System.out.println("Introduza um número: ");
         num1= input.nextInt();
