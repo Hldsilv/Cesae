@@ -21,9 +21,23 @@ public class Ex_04 {
 
 
 
-
-
-
-
+        //PERCEBER ESTE!!!!!
+        for (int j = 1; j <= 5; j++) {
+            // Imprimir espaços em branco
+            for (int k = j; k < 5; k++) {
+                System.out.print(" "); // Espaço em branco
+            }
+            // Imprimir asteriscos
+            for (int k = 1; k <= j; k++) {
+                System.out.print("* "); // Asterisco seguido de espaço para separação
+            }
+            // Mover para a próxima linha
+            System.out.println();
+        }
     }
 }
+
+
+
+
+
