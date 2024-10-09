@@ -13,7 +13,7 @@ public class Ex_04 {
         letra= input.next();
 
 
-        if(letra.equals("a" &&){
+        if(letra.equals("a") || letra.equals("e") || letra.equals("i") || letra.equals("o")||letra.equals("u")) {
             System.out.println("Vogal");
         }else{
             System.out.println("Consoante");
