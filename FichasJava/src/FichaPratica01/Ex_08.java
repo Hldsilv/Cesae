@@ -79,7 +79,7 @@ public class Ex_08 {
 
 
 //como o prof fez
-     // Declarar as Variáveis
+      //Declarar as Variáveis
 //     int segundosLidos, minutosLidos, segundosTotaisAlbum = 0, horas, minutos, segundos;
 //
 //     // Ler minutos e segundos de cada música
@@ -136,10 +136,10 @@ public class Ex_08 {
 //
 //
 //     System.out.println(horas + "h " + minutos + "m " + segundos + "s");
-//
-//    }
+
+
 }
 
     }
 
-}
+
