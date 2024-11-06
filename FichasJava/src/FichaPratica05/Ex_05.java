@@ -21,7 +21,7 @@ public class Ex_05 {
             soma = soma + array[c];
             c++;
         }
-        media = soma / c;
+        media = soma / array.length;
         System.out.println("A média é: "+media);
 
     }

@@ -3,6 +3,12 @@ package FichaPratica06;
 import java.util.Scanner;
 
 public class Ex_01 {
+
+    /**
+     * solicita ao usuário um animal e imprime o som correspondente.
+     * @param args
+     */
+
     public static void main(String[] args) {
 
         Scanner input = new Scanner(System.in);

@@ -33,5 +33,16 @@ public class Ex_12 {
         for (int k = 0; k < 10; k++) {
             System.out.println(combinado[k][0] + " " + combinado[k][1]);
         }
+
+        //ou
+
+        for (int k = 0; k < combinado.length; k++) {
+            for (int e = 0; e < combinado[0].length; e++) {
+                System.out.print(combinado[k][e]+"\t|\t");    /* \t = a dar tab ou seja um espaço grande*/
+
+
+            }
+            System.out.println();
+        }
     }
 }

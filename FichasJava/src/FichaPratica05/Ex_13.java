@@ -19,12 +19,21 @@ public class Ex_13 {
             }
         }
 
+        for (int u = 0; u < matriz.length; u++) {
+            for (int o = 0; o < matriz[0].length; o++) {
+                System.out.print(matriz[u][o]+"\t|\t");    /* \t = a dar tab ou seja um espaço grande*/
+
+
+            }
+            System.out.println();
+        }
 
         for (k = 0; k < 4; k++) {
-            for (l = 0; l < 4; l++) {
-                soma = soma + matriz[k][l];
-            }
+
+                soma = soma + matriz[k][k];
+
         }
         System.out.println(soma);
     }
 }
+

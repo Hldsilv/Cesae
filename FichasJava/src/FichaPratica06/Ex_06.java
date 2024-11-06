@@ -22,6 +22,7 @@ public class Ex_06 {
             System.out.println("1- Maior elemento");
             System.out.println("2. Menor elemento");
             System.out.println("3. Crescente ou não crescente");
+            System.out.println("0. Sair");
 
 
             System.out.println("Insira uma opção: ");
@@ -44,7 +45,7 @@ public class Ex_06 {
                     break;
             }
         }
-    while(opcao!=4);
+    while(opcao!=0);
         }
     }
 

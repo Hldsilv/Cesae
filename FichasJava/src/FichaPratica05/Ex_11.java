@@ -17,28 +17,16 @@ public class Ex_11 {
         int i, j, maior, menor ;
 
 
-        for (i = 0; i < 3; i++) {
-            for (j = 0; j < 3; j++) {
+        for (i = 0; i < matriz.length; i++) {
+            for (j = 0; j < matriz[0].length; j++) {
                 System.out.println("Insira um número na Matriz [" + i + "][" + j + "] ");
                 matriz[i][j] = input.nextInt();
 
             }
         }
 
-        maior = matriz[0][0];
-
-        for (i = 0; i < matriz.length; i++) {
-            for (j = 1; j <matriz[0].length; j++) {
-
-
-                if (matriz[i][i] > maior) {
-                    maior = matriz[i][i];
-
-                }
-            }
-
-        }
         menor = matriz[0][0];
+        maior = matriz[0][0];
 
         for (i = 0; i < matriz.length; i++) {
             for (j = 1; j < matriz[0].length; j++) {
@@ -48,8 +36,15 @@ public class Ex_11 {
                     maior = matriz[i][i];
 
                 }
+                if (matriz[i][i] < menor) {
+                    menor = matriz[i][i];
+
+                }
+
             }
         }
+
+
         System.out.println("O maior número é: " + maior);
         System.out.println("O menor número é: " + menor);
         System.out.println(Arrays.toString(matriz[0]));

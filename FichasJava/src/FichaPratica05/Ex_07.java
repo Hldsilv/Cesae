@@ -8,34 +8,36 @@ public class Ex_07 {
         Scanner input = new Scanner(System.in);
 
         int [] ar = new int [10];
-        int p, maior, i=1,num;
+        int maiorPar ;
 
 
-        for (p=0; p<ar.length; p++){
+        for (int p=0; p<ar.length; p++){
 
             System.out.println("Introduza um número no array: ");
             ar[p] = input.nextInt();
         }
-        maior = ar[0];
+        maiorPar = -1;
 
-        while (i<ar.length){
+        for (int i=0; i<ar.length; i++){
 
-            num=ar[i];
+           if(ar[i]%2 == 0) { //se o elemento atual for par
 
-                if (num > maior) {
+                if (maiorPar %2 != 0) { //se o maiorPar estiver com o primeiro valor ímpar
 
-                    if (num % 2 == 0) {
-                        maior = num;
+                    maiorPar = ar[i];
+                }
+                    if (ar[i] > maiorPar) {  //se o elemeento atual for maior que maiorPar
+                        maiorPar = ar[i];
 
                     }
                 }
 
             i++;
         }
-        if (maior%2==0){
-            System.out.println(maior);
+        if (maiorPar%2==0){
+            System.out.println("maior par" + maiorPar);
         }else{
-           System.out.println("não existe");
+           System.out.println("não há pares");
         }
     }
 }

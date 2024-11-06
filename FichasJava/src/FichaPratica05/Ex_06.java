@@ -31,12 +31,12 @@ public class Ex_06 {
         i++;
         }
 
-        if(crescente == false) {
+        if(crescente) {
 
-            System.out.println(" Não é crescente!");
+            System.out.println("É crescente!");
 
         }else{
-            System.out.println("É crescente!");
+            System.out.println("Não é crescente!");
         }
 
 
