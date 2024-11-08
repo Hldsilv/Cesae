@@ -14,7 +14,7 @@ public class Ex_02 {
         String fileContent = "Hello World";
 
         printWriter.println(fileContent);
-        printWriter.println("Olá Mundo");
+
 
 
         printWriter.close();
