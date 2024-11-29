@@ -1,11 +1,15 @@
 package FichaPratica01;
 
+<<<<<<< Updated upstream
 import java.sql.SQLOutput;
+=======
+>>>>>>> Stashed changes
 import java.util.Scanner;
 
 public class Ex_08 {
     public static void main(String[] args) {
 
+<<<<<<< Updated upstream
 
         Scanner input = new Scanner(System.in);
 
@@ -138,6 +142,56 @@ public class Ex_08 {
 //     System.out.println(horas + "h " + minutos + "m " + segundos + "s");
 
 
+=======
+        Scanner input = new Scanner(System.in);
+
+        double track1m, track1s, track2m, track2s, track3s, track3m, track4m, track4s, track5m, track5s, horas, minutos, segundos;
+
+       // System.out.println("Introduza os minutos da música 1: ");
+        //track1m = input.nextInt();
+
+        System.out.println("Introduza os segundos da música 1: ");
+        track1s = input.nextInt();
+
+       // System.out.println("Introduza os minutos da música 2: ");
+       // track2m = input.nextInt();
+
+        System.out.println("Introduza os segundos da música 2: ");
+        track2s = input.nextInt();
+
+       // System.out.println("Introduza os minutos da música 3: ");
+        //track3m = input.nextInt();
+
+        System.out.println("Introduza os segundos da música 3: ");
+        track3s = input.nextInt();
+
+        //System.out.println("Introduza os minutos da música 4: ");
+        //track4m = input.nextInt();
+
+        System.out.println("Introduza os segundos da música 4: ");
+        track4s = input.nextInt();
+
+        //System.out.println("Introduza os minutos da música 5: ");
+        //track5m = input.nextInt();
+
+        System.out.println("Introduza os segundos da música 5: ");
+        track5s = input.nextInt();
+
+        segundos = (track5s + track4s + track3s + track2s + track1s)/60 ;
+        System.out.println(segundos);
+        minutos = (segundos + track5s + track4s + track3s + track2s + track1s)/60 ;
+        System.out.println(minutos);
+
+
+
+
+
+
+
+
+
+    }
+>>>>>>> Stashed changes
 }
 
     }
