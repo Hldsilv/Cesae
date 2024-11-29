@@ -21,6 +21,10 @@ public class Ex_05 {
         for (int i=0; i<itensDaLinha.length; i++){
             soma+= Double.parseDouble(itensDaLinha[i]);
         }
+        //ou
+//        while(sc.hasNext()){
+//            soma += sc.nextInt();
+//        }
 
         System.out.println("A soma é "+soma);
 

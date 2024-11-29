@@ -28,6 +28,7 @@ public class Ex_06 {
                 maior = idade;
                 nomeMaisVelho = nome;
 
+
             }
 
         }
