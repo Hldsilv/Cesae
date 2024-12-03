@@ -1,5 +1,6 @@
 package Gamestart;
 
+
 import java.util.Scanner;
 
 
@@ -78,8 +79,7 @@ public class Menu {
                     System.out.println("****Pesquisa de vendas****");
                     break;
 
-                case 0: // Sair
-                    System.out.println("Obrigado! Até à próxima! :D");
+                case 0:
                     break;
 
                 default:
@@ -130,8 +130,7 @@ public class Menu {
                     break;
 
                 case 0: // Sair
-                    System.out.println("Obrigado! Até à próxima! :D");
-                    break;
+                break;
                 default:
                     System.out.println("***** Opção Inválida *****");
                     break;
@@ -148,7 +147,7 @@ public class Menu {
         do {
             System.out.println("*********** Programa ***********");
 
-            System.out.println("Tipo de utilizador: 1 - Admin | 2 - Cliente (Selecione 1 ou 2. 0 para sair): ");
+            System.out.println("Tipo de utilizador: 1 - Admin |  2 - Cliente |  0 - Sair): ");
             opcao = input.nextInt();
 
 
@@ -160,7 +159,9 @@ public class Menu {
                 case 2:
                  menuCliente();
                  break;
-
+                case 0:
+                    System.out.println("Obrigado e até à próxima :D");
+                break;
                 default:
                     System.out.println("***** Opção Inválida *****");
             }
