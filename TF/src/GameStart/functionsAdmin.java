@@ -62,13 +62,13 @@ public class functionsAdmin {
             total += vendas;
             contador++;
         }
-        System.out.println(" ");
+        System.out.println();
         System.out.println("************** TOTAL DE VENDAS **************");
-        System.out.println(" ");
+        System.out.println();
         System.out.println("Foram efectuadas "+contador+" vendas e o valor total é de: "+total+"€");
-        System.out.println(" ");
+        System.out.println();
         System.out.println("*********************************************");
-        System.out.println(" ");
+        System.out.println();
 
         sc.close();
     }
@@ -93,17 +93,17 @@ public class functionsAdmin {
             String email = itensDaLinha[4];
 
             if (Integer.parseInt(id) == idCliente) {
-                System.out.println(" ");
+                System.out.println();
                 System.out.println("************** Cliente **************");
-                System.out.println(" ");
+                System.out.println();
                 System.out.println("NOME: " + nome);
-                System.out.println(" ");
+                System.out.println();
                 System.out.println("CONTACTO: " + contacto);
-                System.out.println(" ");
+                System.out.println();
                 System.out.println("EMAIL: " + email);
-                System.out.println(" ");
+                System.out.println();
                 System.out.println("***********************************");
-                System.out.println(" ");
+                System.out.println();
                 break;
             }
         }
@@ -139,16 +139,16 @@ public class functionsAdmin {
                 comprador += "\n" + nome;
         }
     }
-        System.out.println(" ");
+        System.out.println();
         System.out.println("****************** JOGO MAIS CARO ******************");
-        System.out.println(" ");
+        System.out.println();
         System.out.println("O jogo mais caro é " +jogoMaisCaro +" com o valor de " + maisCaro+ "€.");
         System.out.println("---------------------------------------------------------------");
         System.out.println("Os cliente que compraram o " +jogoMaisCaro +" foram: " );
         System.out.println(comprador);
-        System.out.println(" ");
+        System.out.println();
         System.out.println("****************************************************");
-        System.out.println(" ");
+        System.out.println();
 
     sc.close();
 }
@@ -167,12 +167,8 @@ public class functionsAdmin {
             String[] itensDaLinha= linha.split(";");
             String idCliente = itensDaLinha[1];
             double valor = Double.parseDouble(itensDaLinha[8]);
-
-
-
         }
-
-
+sc.close();
     }
 
     /**
@@ -197,9 +193,9 @@ public class functionsAdmin {
             String email = itensDaLinha[4];
 
             if(jogo.equals(itensDaLinha[7])){
-                System.out.println(" ");
+                System.out.println();
                 System.out.println("O jogo "+jogo+" foi comprado por "+nome+" | "+contacto+" | "+email);
-                System.out.println(" ");
+                System.out.println();
             }
         }
         sc.close();

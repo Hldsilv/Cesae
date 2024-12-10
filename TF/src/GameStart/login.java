@@ -26,14 +26,14 @@ public class login {
             if (login.equals(itensDaLinha[0]) && password.equals(itensDaLinha[1])) {
 
                 System.out.println("Login correcto");
-                System.out.println(" ");
+                System.out.println();
                 log = true;
                 break;
             }
         }
             if(!log) {
                 System.out.println("Login incorrecto!");
-                System.out.println(" ");
+                System.out.println();
             }
 
         sc.close();

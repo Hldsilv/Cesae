@@ -14,7 +14,7 @@ public class functionsClient {
 
         Scanner input = new Scanner(System.in);
 
-        System.out.println(" ");
+        System.out.println();
         System.out.println("Insira Nome: ");
         String nomeCliente = input.nextLine();
 
@@ -33,9 +33,9 @@ public class functionsClient {
             System.out.println("Erro: Email inválido!");
             return;
         }
-        System.out.println(" ");
+        System.out.println();
         System.out.println("Cliente Inserido com Sucesso: " + nomeCliente + " | " + contacto + " | " + email);
-        System.out.println(" ");
+        System.out.println();
 
     }
 
@@ -56,7 +56,6 @@ public class functionsClient {
             if (triangular % 5 == 0) {
                 System.out.println(" ");
                 System.out.println("Lugar vago : " + triangular);
-
             }
         }
         System.out.println("***********************************");
@@ -105,9 +104,9 @@ public class functionsClient {
         Scanner input = new Scanner(System.in);
         int opcao;
         do {
-            System.out.println(" ");
+            System.out.println();
             System.out.println("****Catálogos Gráficos****");
-            System.out.println(" ");
+            System.out.println();
             System.out.println("Opção 1 - Call of Dutty");
             System.out.println("Opção 2 - Fifa ");
             System.out.println("Opção 3 - Hollow Knight");
@@ -122,45 +121,45 @@ public class functionsClient {
             switch (opcao) {
                 case 1:
                     System.out.println("********* CALL OF DUTTY *********");
-                    System.out.println(" ");
+                    System.out.println();
                     imprimirFicheiro("GameStartF/CatalogoGrafico/callofDuty.txt");
-                    System.out.println(" ");
+                    System.out.println();
                     break;
 
                 case 2:
                     System.out.println("********* FIFA *********");
-                    System.out.println(" ");
+                    System.out.println();
                     imprimirFicheiro("GameStartF/CatalogoGrafico/fifa.txt");
-                    System.out.println(" ");
+                    System.out.println();
                     break;
 
                 case 3:
                     System.out.println("********* HOLLOW KNIGHT *********");
-                    System.out.println(" ");
+                    System.out.println();
                     imprimirFicheiro("GameStartF/CatalogoGrafico/hollowKnight.txt");
-                    System.out.println(" ");
+                    System.out.println();
 
                     break;
 
                 case 4:
                     System.out.println("********* MINECRAFT *********");
-                    System.out.println(" ");
+                    System.out.println();
                     imprimirFicheiro("GameStartF/CatalogoGrafico/minecraft.txt");
-                    System.out.println(" ");
+                    System.out.println();
                     break;
 
                 case 5:
                     System.out.println("********* MORTAL KOMBAT *********");
-                    System.out.println(" ");
+                    System.out.println();
                     imprimirFicheiro("GameStartF/CatalogoGrafico/mortalKombat.txt");
-                    System.out.println(" ");
+                    System.out.println();
                     break;
 
                 case 6:
                     System.out.println("********* WITCHER 3 *********");
-                    System.out.println(" ");
+                    System.out.println();
                     imprimirFicheiro("GameStartF/CatalogoGrafico/witcher3.txt");
-                    System.out.println(" ");
+                    System.out.println();
                     break;
 
                 case 0: // Sair
@@ -189,7 +188,6 @@ public class functionsClient {
         }
 
         scannerFicheiro.close();
-
     }
 
     public static void imprimirJogoMaisRecente() {
@@ -209,9 +207,9 @@ public class functionsClient {
         String linha = sc.nextLine();
         System.out.println("Editora a Pesquisar: ");
         String edi = input.next();
-        System.out.println(" ");
+        System.out.println();
         System.out.println("***** " + edi + " *****");
-        System.out.println(" ");
+        System.out.println();
 
         while (sc.hasNextLine()) {
             linha = sc.nextLine();
@@ -225,7 +223,7 @@ public class functionsClient {
                 for (int i = 0; i < categorias.length; i++) {
                     if (categorias[i] == null) {
                         categorias[i] = categoria;
-                        System.out.println(" ");
+                        System.out.println();
                         System.out.println("__" + categoria + "__");
                         break;
                     }

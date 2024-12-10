@@ -35,7 +35,7 @@ public class Menu {
 
                 case 2:
                     System.out.println("****CLIENTES****");
-                    System.out.println(" ");
+                    System.out.println();
 
                     break;
 
@@ -212,7 +212,7 @@ public class Menu {
                     break;
                 case 0:
                     imprimirFicheiro("GameStartF/copyright.txt");
-                    System.out.println(" ");
+                    System.out.println();
                     System.out.println("Obrigado e até à próxima :D");
                     break;
                 default:
