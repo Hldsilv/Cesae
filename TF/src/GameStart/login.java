@@ -5,7 +5,13 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class login {
-
+    /**
+     * Compara os dados inseridos com os que estão no ficheiro
+     * @param login o user introduz o login
+     * @param password o user introduz a password
+     * @return true se os dados estiverem de acordo com o ficheiro, false se não estiverem de acordo
+     * @throws FileNotFoundException Caso o ficheiro não seja encontrado
+     */
     public static boolean login(String login, String password) throws FileNotFoundException {
         File scannerFicheiro = new File("GameStartF/Gamestart_AdminLogin.csv");
         Scanner sc = new Scanner(scannerFicheiro);
@@ -26,7 +32,7 @@ public class login {
             }
         }
             if(!log) {
-                System.out.println("Login incorrecto. Tente outra vez!");
+                System.out.println("Login incorrecto!");
                 System.out.println(" ");
             }
 

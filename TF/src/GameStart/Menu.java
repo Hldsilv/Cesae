@@ -4,9 +4,15 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 import static GameStart.functionsAdmin.*;
+import static GameStart.functionsClient.*;
 
 
 public class Menu {
+
+    /**
+     *
+     * @throws FileNotFoundException
+     */
     public static void menuAdminConsultas() throws FileNotFoundException {
         Scanner input = new Scanner(System.in);
         int opcao;
@@ -24,7 +30,7 @@ public class Menu {
             switch (opcao) {
                 case 1:
                     System.out.println("****VENDAS****");
-
+                    consultaVendas();
                     break;
 
                 case 2:
@@ -46,6 +52,10 @@ public class Menu {
         } while (opcao != 0);
     }
 
+    /**
+     *
+     * @throws FileNotFoundException
+     */
     public static void menuAdmin() throws FileNotFoundException {
         Scanner input = new Scanner(System.in);
         int opcao, idCliente;
@@ -69,7 +79,7 @@ public class Menu {
                     break;
 
                 case 2:
-                    imprimirVendas();
+                    imprimirTotalVendas();
                     break;
 
                 case 3:
@@ -90,6 +100,7 @@ public class Menu {
                     break;
                 case 6:
                     System.out.println("****Pesquisa de vendas****");
+                    pesquisaVendas();
                     break;
 
                 case 0:
@@ -102,18 +113,25 @@ public class Menu {
         } while (opcao != 0);
     }
 
-    public static void menuCliente() {
+    /**
+     *
+     * @throws FileNotFoundException
+     */
+    public static void menuCliente() throws FileNotFoundException {
         Scanner input = new Scanner(System.in);
         int opcao;
-        do {
-            System.out.println("****CLIENTE****");
 
+        do {
+            System.out.println();
+            System.out.println();
+            System.out.println("****CLIENTE****");
             System.out.println("Opção 1 - Novo registo");
             System.out.println("Opção 2 - Procurar estacionamento ");
             System.out.println("Opção 3 - Imprimir Catálogo ");
             System.out.println("Opção 4 - Imprimir Catálogos Gráficos ");
             System.out.println("Opção 5 - Imprimir jogo mais recente ");
             System.out.println("Opção 6 - Imprimir Catálogo Editora ");
+            System.out.println("Opção 7 - Imprimir Catálogo Categoria ");
             System.out.println("Opção 0 - Sair ");
 
 
@@ -122,24 +140,34 @@ public class Menu {
             switch (opcao) {
                 case 1:
                     System.out.println("*************** Novo registo ***************");
+                    registarCliente();
                     break;
 
                 case 2:
                     System.out.println("*************** Procurar estacionamento ***************");
+                    procurarEstacionamento();
                     break;
 
                 case 3:
                     System.out.println("Imprimir Catálogo");
+                    imprimirCatalogoJogos();
                     break;
+
                 case 4:
-                    System.out.println("****Imprimir Catálogos Gráficos****");
+                    menuCatalogoGrafico();
                     break;
 
                 case 5:
                     System.out.println("****Imprimir jogo mais recente****");
                     break;
+
                 case 6:
                     System.out.println("****Imprimir Catálogo Editora****");
+                    catalogoEditoras();
+                    break;
+                case 7:
+                    System.out.println("****Imprimir Catálogo Categoria****");
+                    catalogoCategoria();
                     break;
 
                 case 0: // Sair
@@ -152,6 +180,10 @@ public class Menu {
 
     }
 
+    /**
+     *
+     * @throws FileNotFoundException
+     */
     public static void menuInicial() throws FileNotFoundException {
 
         Scanner input = new Scanner(System.in);
@@ -167,9 +199,9 @@ public class Menu {
 
             switch (opcao) {
                 case 1:
-                    System.out.println("Introduza o USERNAME:");
+                    System.out.println("Introduza o Username:");
                     login = input.next();
-                    System.out.println("Introduza o USERNAME:");
+                    System.out.println("Introduza a Password:");
                     password = input.next();
                    if(GameStart.login.login(login,password)) {
                        menuAdmin();
@@ -179,6 +211,8 @@ public class Menu {
                     menuCliente();
                     break;
                 case 0:
+                    imprimirFicheiro("GameStartF/copyright.txt");
+                    System.out.println(" ");
                     System.out.println("Obrigado e até à próxima :D");
                     break;
                 default:

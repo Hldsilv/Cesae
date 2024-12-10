@@ -4,20 +4,56 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
+
 public class functionsAdmin {
     /**
-     * Imprime o valor total de vendas e quantas vendas foram efectuadas.
-     * @throws FileNotFoundException
+     * imprime o ficheiro de vendas
+     * @throws FileNotFoundException Caso não encontre o ficheiro
      */
-    public static void imprimirVendas() throws FileNotFoundException {
+    public static void consultaVendas() throws FileNotFoundException {
+        File scannerFicheiro = new File("GameStartF/GameStart_Vendas.csv");
+        Scanner sc = new Scanner(scannerFicheiro);
+
+        String linha = sc.nextLine();
+
+        System.out.printf("%-15s| %-15s| %-20s| %-15s| %-40s| %-25s| %-15s| %-30s| %-10s%n",
+                "ID DE VENDA", "ID CLIENTE", "NOME DO CLIENTE", "CONTACTO",
+                "EMAIL", "EDITORA", "CATEGORIA", "JOGO", "VALOR");
+
+        while (sc.hasNextLine()) {
+            linha = sc.nextLine();
+            String[] itensDaLinha = linha.split(";");
+
+            if (itensDaLinha.length == 9) {
+
+                System.out.printf("%-15s| %-15s| %-20s| %-15s| %-40s| %-25s| %-15s| %-30s| %-10s%n",
+                        itensDaLinha[0], itensDaLinha[1], itensDaLinha[2],
+                        itensDaLinha[3], itensDaLinha[4] , itensDaLinha[5],
+                        itensDaLinha[6], itensDaLinha[7], itensDaLinha[8]);
+            }
+        }
+        sc.close();
+    }
+
+    public static void consultaClientes(){
+
+    }
+
+    public static void consultaCategorias(){
+
+    }
+
+    /**
+     * Imprime o valor total de vendas e quantas vendas foram efectuadas.
+     * @throws FileNotFoundException Caso não encontre o ficheiro
+     */
+    public static void imprimirTotalVendas() throws FileNotFoundException {
         File scannerFicheiro = new File("GameStartF/GameStart_Vendas.csv");
         Scanner sc = new Scanner(scannerFicheiro);
 
         String linha =sc.nextLine();
         int  contador=0;
         double vendas, total=0;
-
-
 
         while (sc.hasNextLine()) {
             linha = sc.nextLine();
@@ -48,7 +84,6 @@ public class functionsAdmin {
 
         String linha = sc.nextLine();
 
-
         while (sc.hasNextLine()) {
             linha = sc.nextLine();
             String[] itensDaLinha = linha.split(";");
@@ -70,16 +105,14 @@ public class functionsAdmin {
                 System.out.println("***********************************");
                 System.out.println(" ");
                 break;
-
             }
-
         }
         sc.close();
     }
 
     /**
      * Pesquisa o jogo mais caro e os clientes que o compraram e depois imprime.
-     * @throws FileNotFoundException
+     * @throws FileNotFoundException Caso não encontre o ficheiro
      */
     public static void jogoMaisCaro() throws FileNotFoundException {
         File scannerFicheiro = new File("GameStartF/GameStart_Vendas.csv");
@@ -104,9 +137,7 @@ public class functionsAdmin {
 
             } else if (valor == maisCaro && jogo.equals(jogoMaisCaro)) {
                 comprador += "\n" + nome;
-
         }
-
     }
         System.out.println(" ");
         System.out.println("****************** JOGO MAIS CARO ******************");
@@ -120,7 +151,6 @@ public class functionsAdmin {
         System.out.println(" ");
 
     sc.close();
-
 }
 
     public static void melhorCliente() throws FileNotFoundException {
@@ -128,8 +158,9 @@ public class functionsAdmin {
         Scanner sc = new Scanner(scannerFicheiro);
 
         String linha = sc.nextLine();
-        double soma=0;
+        double soma=0, valorMaior=0;
         String melhorCliente= "";
+        int melhorId=0;
 
         while (sc.hasNextLine()) {
             linha = sc.nextLine();
@@ -139,16 +170,39 @@ public class functionsAdmin {
 
 
 
-                if(idCliente) {
-                    soma += valor;
-                }
-            }
-
         }
 
+
     }
 
-    public static void main(String[] args) throws FileNotFoundException {
-jogoMaisCaro();
+    /**
+     * pesquisar um jogo e imprimir os dados dos clientes que o compraram
+     * @throws FileNotFoundException se o ficheiro estiver errado
+     */
+    public static void pesquisaVendas() throws FileNotFoundException {
+        File scannerFicheiro = new File("GameStartF/GameStart_Vendas.csv");
+        Scanner sc = new Scanner(scannerFicheiro);
+        Scanner input = new Scanner(System.in);
+
+        System.out.println("Insira o Jogo que deseja pesquisar: ");
+        String jogo = input.nextLine();
+        String linha = sc.nextLine();
+
+        while (sc.hasNextLine()){
+            linha = sc.nextLine();
+            String[] itensDaLinha= linha.split(";");
+
+            String nome = itensDaLinha[2];
+            String contacto = itensDaLinha[3];
+            String email = itensDaLinha[4];
+
+            if(jogo.equals(itensDaLinha[7])){
+                System.out.println(" ");
+                System.out.println("O jogo "+jogo+" foi comprado por "+nome+" | "+contacto+" | "+email);
+                System.out.println(" ");
+            }
+        }
+        sc.close();
     }
 }
+
