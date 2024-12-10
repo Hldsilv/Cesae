@@ -84,11 +84,11 @@ public class Menu {
 
                 case 3:
                     System.out.println("Pesquisa de informações de cliente");
-                    System.out.println(" ");
+                    System.out.println();
                     System.out.println("Insira o id do Cliente:");
                     idCliente = input.nextInt();
                     pesquisaCliente(idCliente);
-                    System.out.println(" ");
+                    System.out.println();
                     break;
                 case 4:
                     System.out.println("Jogo mais caro e clientes que o compraram ");
