@@ -2,17 +2,17 @@
             /                                                \
            |    _________________________________________     |
            |   |                                         |    |
-           |   |  C:\> _                                 |    |
+           |   |  C:\>Trabalho Desenvolvido por:         |    |
            |   |                                         |    |
            |   |                                         |    |
-           |   |     Trabalho Desenvolvido por:          |    |
-           |   |                                         |    |
-           |   |         Hélder Silveira                 |    |
+           |   |       Hélder Silveira                   |    |
            |   |                                         |    |
            |   |                                         |    |
            |   |                                         |    |
-           |   |       FRONT-END DEVELOPER  -  CESAE     |    |
            |   |                                         |    |
+           |   |                                         |    |
+           |   |                                         |    |
+           |   |      FRONT-END DEVELOPER  -  CESAE      |    |
            |   |                                         |    |
            |   |_________________________________________|    |
            |                                                  |
