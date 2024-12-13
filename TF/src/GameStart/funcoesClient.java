@@ -26,8 +26,6 @@ public class funcoesClient {
         String email = input.nextLine();
 
         //ver erros de input
-
-
         System.out.println("\nCliente Inserido com Sucesso: "+ nomeCliente + " | " + contacto + " | " + email+"\n");
     }
 
@@ -42,7 +40,6 @@ public class funcoesClient {
             int triangular = i * (i + 1) / 2;
 
             if (triangular > 121) {
-
                 break;
             }
             if (triangular % 5 == 0) {

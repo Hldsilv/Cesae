@@ -1,0 +1,21 @@
+*******************************************************- [] X**
+*************************** CLIENTE ***************************
+***************************************************************  
+*         					   	                              *
+*	          Opção 1 - Novo registo		                  *
+*							                                  *
+*             Opção 2 - Procurar estacionamento    	          *
+*  							                                  *
+*             Opção 3 - Imprimir Catálogo		              *
+*							                                  *
+*             Opção 4 - Imprimir Catálogos Gráficos   	      *  
+* 							                                  *
+*             Opção 5 - Imprimir jogo mais recente            *  
+*							                                  *
+*             Opção 6 - Imprimir Catálogo Editora             *   
+*  							                                  *
+*             Opção 7 - Imprimir Catálogo Categoria           *
+*							                                  *
+*             Opção 0 - Sair			                      *
+*						   	                                  *
+***************************************************************         

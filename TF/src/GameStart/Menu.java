@@ -20,13 +20,7 @@ public class Menu {
 
         do {
             limparConsola();
-            System.out.println("************ Consultas ************");
-
-            System.out.println("Opção 1 - Consulta de vendas");
-            System.out.println("Opção 2 - Consulta de clientes  ");
-            System.out.println("Opção 3 - Consulta de categorias  ");
-            System.out.println("Opção 0 - Sair ");
-
+            imprimirFicheiro("GameStartF/menuAdminVendas.txt");
             opcao = input.nextInt();
 
             switch (opcao) {
@@ -69,14 +63,7 @@ public class Menu {
 
         do {
             limparConsola();
-            System.out.println("********************** ADMIN ********************** \n");
-            System.out.println("Opção 1 - Consulta");
-            System.out.println("Opção 2 - Total de vendas  ");
-            System.out.println("Opção 3 - Pesquisa de informações de cliente");
-            System.out.println("Opção 4 - Jogo mais caro e clientes que o compraram ");
-            System.out.println("Opção 5 - Melhor cliente");
-            System.out.println("Opção 6 - Pesquisa de vendas");
-            System.out.println("Opção 0 - Sair ");
+            imprimirFicheiro("GameStartF/menuAdmin.txt");
             opcao = input.nextInt();
 
             switch (opcao) {
@@ -133,16 +120,7 @@ public class Menu {
 
         do {
             limparConsola();
-            System.out.println("\n**************** CLIENTE ****************\n");
-            System.out.println("Opção 1 - Novo registo");
-            System.out.println("Opção 2 - Procurar estacionamento ");
-            System.out.println("Opção 3 - Imprimir Catálogo ");
-            System.out.println("Opção 4 - Imprimir Catálogos Gráficos ");
-            System.out.println("Opção 5 - Imprimir jogo mais recente ");
-            System.out.println("Opção 6 - Imprimir Catálogo Editora ");
-            System.out.println("Opção 7 - Imprimir Catálogo Categoria ");
-            System.out.println("Opção 0 - Sair ");
-            System.out.println();
+            imprimirFicheiro("GamestartF/menuCliente.txt");
 
             opcao = input.nextInt();
 
@@ -208,9 +186,7 @@ public class Menu {
         String login, password;
 
         do {
-
-            System.out.println("\n*********************** Programa GameStart ***********************\n");
-            System.out.println("Tipo de utilizador: \n1 - Admin  \n2 - Cliente   \n0 - Sair ");
+            imprimirFicheiro("GameStartF/menuInicial.txt");
             opcao = input.nextInt();
 
 
@@ -224,6 +200,9 @@ public class Menu {
                     menuCliente();
                     break;
                 case 0:
+                    System.out.println("******************************************************************");
+                    System.out.println("\n\t\t\t\t\t\tA fechar o programa...\n");
+                    System.out.println("******************************************************************\n");
                     imprimirFicheiro("GameStartF/copyright.txt");
                     System.out.println("\nObrigado e até à próxima :D");
                     break;

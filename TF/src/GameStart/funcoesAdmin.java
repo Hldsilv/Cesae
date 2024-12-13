@@ -254,6 +254,7 @@ public class funcoesAdmin {
             String idCliente = itensDaLinha[1];
             double valor = Double.parseDouble(itensDaLinha[8]);
         }
+//fazer matriz //
 sc.close();
     }
 

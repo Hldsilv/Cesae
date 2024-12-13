@@ -57,5 +57,9 @@ public class funcoesAuxiliares {
         }
         return contador;
     }
+
+    public static void funcaoParaImportarFicheiro(){
+        //imagina que quero mudar o nome do ficheiro, tinha que mudar em todos, assim so mudo numa funçao
+    }
 }
 
