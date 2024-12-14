@@ -3,8 +3,7 @@ package GameStart;
 import java.io.FileNotFoundException;
 
 import static GameStart.Menu.menuInicial;
-import static GameStart.funcoesAuxiliares.carregarPrograma;
-import static GameStart.funcoesAuxiliares.imprimirFicheiro;
+import static GameStart.funcoesAuxiliares.*;
 
 public class Main {
     public static void main(String[] args) throws FileNotFoundException, InterruptedException {
@@ -13,6 +12,7 @@ public class Main {
     System.out.println("\n\n\n\n");
     carregarPrograma();
     menuInicial();
+    contarLinhasFicheiro();
 
     }
 }

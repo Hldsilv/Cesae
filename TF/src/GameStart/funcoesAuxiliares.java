@@ -22,7 +22,7 @@ public class funcoesAuxiliares {
             System.out.println(scannerFicheiro.nextLine());
         }
 
-        scannerFicheiro.close();
+
     }
 
     /**
@@ -79,7 +79,7 @@ public class funcoesAuxiliares {
     public static void carregarPrograma() throws InterruptedException {
 
         sleep(2000);
-        System.out.print("\t\t\t\tO PROGRAMA ESTÁ A INICIAR");
+        System.out.print("\t\t\t\t\t\t\tO PROGRAMA ESTÁ A INICIAR");
         sleep(2000);
 
         for (int i = 0; i < 5; i++) {
@@ -94,7 +94,7 @@ public class funcoesAuxiliares {
      */
     public static void fecharPrograma() throws InterruptedException {
 
-        sleep(2000);
+        sleep(500);
         System.out.print("\t\t\t\t\tA FECHAR O PROGRAMA");
         sleep(1000);
 
@@ -108,5 +108,21 @@ public class funcoesAuxiliares {
         sleep(2000);
     }
 
+    /**
+     * Mostra ao user que a opção selecionada é inválida
+     */
+    public static void opcaoInvalida() {
+        System.out.println("\n*********************** Opção Inválida ***********************\n");
+        primaEnter();
+    }
+
+    /**
+     * imprime um ficheiro
+     * @param nomeCabecalho recebe o nome do ficheiro para imprimir
+     * @throws FileNotFoundException Caso não encontre o ficheiro
+     */
+    public static void imprimirHeader(String nomeCabecalho) throws FileNotFoundException {
+        imprimirFicheiro("GameStartF/cabecalhos/"+nomeCabecalho);
+    }
 }
 

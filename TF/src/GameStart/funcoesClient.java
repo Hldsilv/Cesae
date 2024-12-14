@@ -63,7 +63,7 @@ public class funcoesClient {
                 System.out.println("\nLugar vago : " + triangular+"\n");
             }
         }
-        System.out.println("***********************************\n");
+        System.out.println("********************************************************************************************************\n");
     }
 
     /**
@@ -111,6 +111,7 @@ public class funcoesClient {
             limparConsola();
             imprimirFicheiro("GameStartF/catalogosGraficosMenu.txt");
             opcao = input.nextInt();
+            limparConsola();
 
             switch (opcao) {
                 case 1:
@@ -123,7 +124,7 @@ public class funcoesClient {
 
                 case 2:
                     limparConsola();
-                    System.out.println("************************ FIFA ************************\n");
+                    System.out.println("*************************************************** FIFA ***************************************************\n");
                     imprimirFicheiro("GameStartF/CatalogoGrafico/fifa.txt");
                     primaEnter();
                     limparConsola();
@@ -131,7 +132,7 @@ public class funcoesClient {
 
                 case 3:
                     limparConsola();
-                    System.out.println("************************ HOLLOW KNIGHT ************************\n");
+                    System.out.println("******** HOLLOW KNIGHT ********\n");
                     imprimirFicheiro("GameStartF/CatalogoGrafico/hollowKnight.txt");
                     primaEnter();
                     limparConsola();
@@ -139,7 +140,7 @@ public class funcoesClient {
 
                 case 4:
                     limparConsola();
-                    System.out.println("************************ MINECRAFT ************************\n");
+                    System.out.println("************* MINECRAFT *************\n");
                     imprimirFicheiro("GameStartF/CatalogoGrafico/minecraft.txt");
                     primaEnter();
                     limparConsola();
@@ -155,7 +156,7 @@ public class funcoesClient {
 
                 case 6:
                     limparConsola();
-                    System.out.println("************************ OVERCOOKED ************************\n");
+                    System.out.println("********** OVERCOOKED **********\n");
                     imprimirFicheiro("GameStartF/CatalogoGrafico/overcooked.txt");
                     primaEnter();
                     limparConsola();
@@ -163,7 +164,7 @@ public class funcoesClient {
 
                 case 7:
                     limparConsola();
-                    System.out.println("************************ WITCHER 3 ************************\n");
+                    System.out.println("******************************** WITCHER 3 ********************************\n");
                     imprimirFicheiro("GameStartF/CatalogoGrafico/witcher3.txt");
                     primaEnter();
                     limparConsola();
@@ -172,7 +173,7 @@ public class funcoesClient {
                 case 0: // Sair
                     break;
                 default:
-                    System.out.println("******************** Opção Inválida ********************");
+                    opcaoInvalida();
                     break;
             }
         } while (opcao != 0);
@@ -207,10 +208,11 @@ public class funcoesClient {
     }
         for (int i=0; i< array.length; i++){
             if (array[array.length-1-i] != null) {
-                System.out.println(array[array.length-1 -i]);
+                System.out.println(array[array.length-1-i]);
                 break;
             }
         }
+        System.out.println("\n*******************************************");
         sc.close();
     }
 
@@ -226,6 +228,7 @@ public class funcoesClient {
         String linha = sc.nextLine();
         System.out.println("Editora a Pesquisar: ");
         String edi = input.nextLine();
+        boolean encontrado = false;
 
         System.out.println("\n************** " + edi + " **************\n");
 
@@ -242,7 +245,9 @@ public class funcoesClient {
                     if (categorias[i] == null) {
                         categorias[i] = categoria;
                         System.out.println("\n__" + categoria + "__");
+                        encontrado=true;
                         break;
+
                     }
                     if (categorias[i].equals(categoria)) {
                         break;
@@ -260,6 +265,9 @@ public class funcoesClient {
                 }
             }
         }
+        if(!encontrado){
+            System.out.println("\nEditora não encontrada\n");
+        }
         System.out.println("\n***************************************");
         sc.close();
     }
@@ -276,6 +284,7 @@ public class funcoesClient {
         String linha = sc.nextLine();
         System.out.println("Categoria a Pesquisar: ");
         String cat = input.nextLine();
+        boolean encontrado = false;
 
         System.out.println("\n************** " + cat + " **************\n");
 
@@ -291,6 +300,7 @@ public class funcoesClient {
                     if (editoras[i] == null) {
                         editoras[i] = editora;
                         System.out.println("\n__" + editora + "__");
+                        encontrado=true;
                         break;
                     }
                     if (editoras[i].equals(editora)) {
@@ -308,6 +318,9 @@ public class funcoesClient {
                     }
                 }
             }
+        }
+        if(!encontrado){
+            System.out.println("\nCategoria não encontrada\n");
         }
         System.out.println("\n***********************************");
         sc.close();

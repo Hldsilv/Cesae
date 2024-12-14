@@ -22,30 +22,30 @@ public class Menu {
             limparConsola();
             imprimirFicheiro("GameStartF/menuAdminVendas.txt");
             opcao = input.nextInt();
+            limparConsola();
 
             switch (opcao) {
                 case 1:
-                    System.out.println("\n************************************************************************************* VENDAS ***************************************************************************************\n");
+                    imprimirHeader("consultaVendas.txt");
                     consultaVendas();
                     primaEnter();
                     break;
 
                 case 2:
-                    System.out.println("\n************ CLIENTES ************\n");
+                    imprimirHeader("consultaClientes.txt");
                     consultaClientes();
                     primaEnter();
                     break;
 
                 case 3:
-                    System.out.println("\n************ CATEGORIAS ************\n");
+                    imprimirHeader("consultaCategorias.txt");
                     consultaCategorias();
                     primaEnter();
                     break;
                 case 0:
                     break;
                 default:
-                    System.out.println("\n********** Opção Inválida **********\n");
-
+                    opcaoInvalida();
                     break;
             }
 
@@ -65,6 +65,7 @@ public class Menu {
             limparConsola();
             imprimirFicheiro("GameStartF/menuAdmin.txt");
             opcao = input.nextInt();
+            limparConsola();
 
             switch (opcao) {
                 case 1:
@@ -77,26 +78,24 @@ public class Menu {
                     break;
 
                 case 3:
-                    System.out.println("********************** Pesquisa de informações de cliente **********************\n");
-                    System.out.println("Insira o id do Cliente:");
-                    idCliente = input.nextInt();
-                    pesquisaCliente(idCliente);
-                    System.out.println();
+
+                    limparConsola();
+                    pesquisaCliente();
                     primaEnter();
                     break;
                 case 4:
-                    System.out.println("********************* Jogo mais caro e clientes que o compraram *********************");
+                    imprimirHeader("jogoMaisCaro.txt");
                     jogoMaisCaro();
                     primaEnter();
                     break;
 
                 case 5:
-                    System.out.println("********************************** Melhor cliente **********************************");
+                    imprimirHeader("melhorCliente.txt");
                     melhorCliente();
                     primaEnter();
                     break;
                 case 6:
-                    System.out.println("************************************************ Pesquisa de vendas ************************************************\n");
+                    imprimirHeader("pesquisaDeVendas.txt");
                     pesquisaVendas();
                     primaEnter();
                     break;
@@ -105,7 +104,7 @@ public class Menu {
                     break;
 
                 default:
-                    System.out.println("\n************************ Opção Inválida ************************\n");
+                    opcaoInvalida();
                     break;
             }
         } while (opcao != 0);
@@ -122,25 +121,25 @@ public class Menu {
         do {
             limparConsola();
             imprimirFicheiro("GamestartF/menuCliente.txt");
-
             opcao = input.nextInt();
+            limparConsola();
 
             switch (opcao) {
                 case 1:
-                    System.out.println("\n******************** Novo registo ********************\n");
+                    imprimirHeader("registo.txt");
                     registarCliente();
                     primaEnter();
 
                     break;
 
                 case 2:
-                    System.out.println("\n*************** Estacionamento Livre ***************\n");
+                    imprimirHeader("estacionamento.txt");
                     procurarEstacionamento();
                     primaEnter();
                     break;
 
                 case 3:
-                    System.out.println("\n*************** CATÁLOGO DE JOGOS ***************\n");
+                    imprimirHeader("catalogo.txt");
                     imprimirCatalogoJogos();
                     primaEnter();
                     break;
@@ -150,18 +149,19 @@ public class Menu {
                     break;
 
                 case 5:
-                    System.out.println("\n************ Jogo mais recente ****************\n");
+                    imprimirHeader("jogoMaisRecente.txt");
+                    System.out.println();
                     imprimirJogoMaisRecente();
                     primaEnter();
                     break;
 
                 case 6:
-                    System.out.println("\n************ Catálogo Editora ************\n");
+                    imprimirHeader("catalogoEditoras.txt");
                     catalogoEditoras();
                     primaEnter();
                     break;
                 case 7:
-                    System.out.println("\n************ Catálogo Categoria ************\n");
+                    imprimirHeader("catalogoCategorias.txt");
                     catalogoCategoria();
                     primaEnter();
                     break;
@@ -169,7 +169,7 @@ public class Menu {
                 case 0:
                     break;
                 default:
-                    System.out.println("\n********* Opção Inválida *********\n");
+                    opcaoInvalida();
                     break;
             }
         } while (opcao != 0);
@@ -183,17 +183,18 @@ public class Menu {
 
         Scanner input = new Scanner(System.in);
         int opcao;
-        String login, password;
 
         do {
             limparConsola();
             imprimirFicheiro("GameStartF/menuInicial.txt");
             opcao = input.nextInt();
-
+            limparConsola();
 
             switch (opcao) {
                 case 1:
+                    imprimirHeader("login.txt");
                    if(login()) {
+                       primaEnter();
                        menuAdmin();
                    }
                     break;
@@ -204,12 +205,13 @@ public class Menu {
                     System.out.println("\n\n\n\n");
                     System.out.println("***************************************************************\n");
                     fecharPrograma();
-                    System.out.printf("\n\n\n");
+                    System.out.print("\n\n\n");
                     imprimirFicheiro("GameStartF/copyright.txt");
                     System.out.println("\n\n\t\t\t\t\t\tObrigado e até à próxima \uD83D\uDE01");
                     break;
                 default:
-                    System.out.println("\n*************** Opção Inválida ***************\n");
+                    opcaoInvalida();
+                    break;
             }
         } while (opcao != 0);
     }

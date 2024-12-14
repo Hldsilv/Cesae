@@ -153,22 +153,26 @@ public class funcoesAdmin {
             total += vendas;
             contador++;
         }
-        System.out.println("\n************************** TOTAL DE VENDAS *********************************\n");
-        System.out.println("Foram efectuadas "+contador+" vendas e o valor total é de: "+total+"€\n");
-        System.out.println("****************************************************************************\n");
+        imprimirHeader("totalVendas.txt");
+        System.out.println("\nForam efectuadas "+contador+" vendas e o valor total é de: "+total+"€\n");
+        System.out.println("*********************************************************************************************************************\n");
 
         sc.close();
     }
 
     /**
      * Pesquisa por um cliente dado o seu id e imprime o nome, contacto e email.
-     * @param idCliente argumento o idcliente que é inserido pelo user
      * @throws FileNotFoundException Caso não encontre o ficheiro
      */
-    public static void pesquisaCliente(int idCliente) throws FileNotFoundException {
+    public static void pesquisaCliente() throws FileNotFoundException {
         Scanner sc = importarFicheiro();
+        Scanner input = new Scanner(System.in);
 
+        imprimirHeader("infClientes.txt");
+        System.out.println("\nIntroduza o ID do Cliente\n");
+        int idCliente= input.nextInt();
         String linha = sc.nextLine();
+        boolean encontrou=false;
 
         while (sc.hasNextLine()) {
             linha = sc.nextLine();
@@ -179,13 +183,14 @@ public class funcoesAdmin {
             String email = itensDaLinha[4];
 
             if (Integer.parseInt(id) == idCliente) {
-                System.out.println("\n************** Cliente **************\n");
-                System.out.println("\nNOME: " + nome+"\n");
-                System.out.println("\nCONTACTO: " + contacto+"\n");
-                System.out.println("\nEMAIL: " + email+"\n");
+                System.out.println("\nNOME: " + nome+"\n\nCONTACTO: " + contacto+"\n\nEMAIL: " + email+"\n");
                 System.out.println("\n*************************************\n");
+                encontrou=true;
                 break;
             }
+        }
+        if (!encontrou){
+            System.out.println("ID não encontrado");
         }
         sc.close();
     }
@@ -221,7 +226,7 @@ public class funcoesAdmin {
         System.out.println("\nO jogo mais caro é " +jogoMaisCaro +" com o valor de " + maisCaro+ "€.\n");
         System.out.println("---------------------------------------------------------------");
         System.out.println("\nOs clientes que compraram o " +jogoMaisCaro +" foram: " );
-        System.out.println(""+comprador);
+        System.out.println(comprador);
         System.out.println("\n*************************************************************************************\n");
 
     sc.close();
@@ -272,10 +277,10 @@ public class funcoesAdmin {
                 }
             }
         }
-        System.out.println("\n"+melhorCliente + " com o valor gasto de " + maiorValor+"\n\nE os jogos comprados foram: ");
+        System.out.println("\n"+melhorCliente + " com o valor gasto de " + maiorValor+"€\n\nE os jogos comprados foram: ");
 
-        sc.close();
-        sc = new Scanner(new File("GameStartF/GameStart_Vendas.csv"));
+
+        sc = importarFicheiro();
         linha = sc.nextLine();
 
         while (sc.hasNextLine()) {
@@ -299,8 +304,10 @@ public class funcoesAdmin {
         Scanner sc = importarFicheiro();
         Scanner input = new Scanner(System.in);
 
+
         System.out.println("Insira o Jogo que deseja pesquisar: ");
         String jogo = input.nextLine();
+        boolean encontrou=false;
         String linha = sc.nextLine();
 
         while (sc.hasNextLine()){
@@ -313,10 +320,13 @@ public class funcoesAdmin {
 
             if(jogo.equalsIgnoreCase(itensDaLinha[7])){
                 System.out.println("\nO jogo "+jogo+" foi comprado por "+nome+" | Contacto: "+contacto+" | Email: "+email+"\n");
+                encontrou=true;
             }
-
         }
-        System.out.println("\n**********************************************************************************************************************");
+        if(!encontrou){
+            System.out.println("\nJogo não encontrado\n");
+        }
+        System.out.println("\n********************************************************************************************************************************************");
         sc.close();
     }
 }
