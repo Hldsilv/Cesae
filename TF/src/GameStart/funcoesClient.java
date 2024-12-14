@@ -1,6 +1,5 @@
 package GameStart;
 
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
@@ -18,14 +17,31 @@ public class funcoesClient {
         System.out.println("\nInsira Nome: ");
         String nomeCliente = input.nextLine();
 
+        while (nomeCliente.length() < 4) {
+            System.out.println("Nome de Cliente inválido, insira pelo menos 4 caracteres");
+            System.out.println("\nInsira Nome: ");
+            nomeCliente = input.nextLine();
+        }
+
         System.out.println("\nInsira Contacto: ");
-        int contacto = input.nextInt();
-        input.nextLine();
+        String contacto = input.nextLine();
+
+        while(contacto.length()<9){
+            System.out.println("Contacto invalido, tem que ter 9 dígitos");
+            System.out.println("\nInsira Contacto: ");
+            contacto = input.nextLine();
+        }
 
         System.out.println("\nInsira Email: ");
         String email = input.nextLine();
+        while(email.length()<5){
+            System.out.println("Email inválido, insira menos 5 caracteres");
+            System.out.println("\nInsira Email: ");
+            email = input.nextLine();
+        }
 
         //ver erros de input
+        System.out.println("\n******************************************************");
         System.out.println("\nCliente Inserido com Sucesso: "+ nomeCliente + " | " + contacto + " | " + email+"\n");
     }
 
@@ -57,10 +73,9 @@ public class funcoesClient {
      * @throws FileNotFoundException Caso não encontre o ficheiro
      */
     public static void imprimirCatalogoJogos() throws FileNotFoundException {
-        File scannerFicheiro = new File("GameStartF/GameStart_Vendas.csv");
-        Scanner sc = new Scanner(scannerFicheiro);
+        Scanner sc = importarFicheiro();
 
-        String[] array = new String[contadorLinhasArray()];
+        String[] array = new String[contarLinhasFicheiro()];
         String linha = sc.nextLine();
 
         while (sc.hasNextLine()) {
@@ -79,6 +94,7 @@ public class funcoesClient {
                 }
             }
         }
+        System.out.println("\n*************************************************");
         sc.close();
     }
 
@@ -92,63 +108,62 @@ public class funcoesClient {
         Scanner input = new Scanner(System.in);
         int opcao;
         do {
-            System.out.println("\n****Catálogos Gráficos****\n");
-            System.out.println("Opção 1 - Call of Dutty");
-            System.out.println("Opção 2 - Fifa ");
-            System.out.println("Opção 3 - Hollow Knight");
-            System.out.println("Opção 4 - Minecraft ");
-            System.out.println("Opção 5 - Mortal Kombat ");
-            System.out.println("Opção 6 - Overcooked ");
-            System.out.println("Opção 7 - Witcher 3 ");
-            System.out.println("Opção 0 - Sair \n");
-
+            limparConsola();
+            imprimirFicheiro("GameStartF/catalogosGraficosMenu.txt");
             opcao = input.nextInt();
 
             switch (opcao) {
                 case 1:
-                    System.out.println("****************** CALL OF DUTTY ******************\n");
+                    limparConsola();
+                    System.out.println("************************ CALL OF DUTTY ************************\n");
                     imprimirFicheiro("GameStartF/CatalogoGrafico/callofDuty.txt");
                     primaEnter();
                     limparConsola();
                     break;
 
                 case 2:
-                    System.out.println("****************** FIFA ******************\n");
+                    limparConsola();
+                    System.out.println("************************ FIFA ************************\n");
                     imprimirFicheiro("GameStartF/CatalogoGrafico/fifa.txt");
                     primaEnter();
                     limparConsola();
                     break;
 
                 case 3:
-                    System.out.println("****************** HOLLOW KNIGHT ******************\n");
+                    limparConsola();
+                    System.out.println("************************ HOLLOW KNIGHT ************************\n");
                     imprimirFicheiro("GameStartF/CatalogoGrafico/hollowKnight.txt");
                     primaEnter();
                     limparConsola();
                     break;
 
                 case 4:
-                    System.out.println("****************** MINECRAFT ******************\n");
+                    limparConsola();
+                    System.out.println("************************ MINECRAFT ************************\n");
                     imprimirFicheiro("GameStartF/CatalogoGrafico/minecraft.txt");
                     primaEnter();
                     limparConsola();
                     break;
 
                 case 5:
-                    System.out.println("****************** MORTAL KOMBAT ******************\n");
+                    limparConsola();
+                    System.out.println("************************ MORTAL KOMBAT ************************\n");
                     imprimirFicheiro("GameStartF/CatalogoGrafico/mortalKombat.txt");
                     primaEnter();
                     limparConsola();
                     break;
 
                 case 6:
-                    System.out.println("****************** OVERCOOKED ******************\n");
+                    limparConsola();
+                    System.out.println("************************ OVERCOOKED ************************\n");
                     imprimirFicheiro("GameStartF/CatalogoGrafico/overcooked.txt");
                     primaEnter();
                     limparConsola();
                     break;
 
                 case 7:
-                    System.out.println("****************** WITCHER 3 ******************\n");
+                    limparConsola();
+                    System.out.println("************************ WITCHER 3 ************************\n");
                     imprimirFicheiro("GameStartF/CatalogoGrafico/witcher3.txt");
                     primaEnter();
                     limparConsola();
@@ -157,7 +172,7 @@ public class funcoesClient {
                 case 0: // Sair
                     break;
                 default:
-                    System.out.println("************** Opção Inválida **************");
+                    System.out.println("******************** Opção Inválida ********************");
                     break;
             }
         } while (opcao != 0);
@@ -170,10 +185,9 @@ public class funcoesClient {
      * @throws FileNotFoundException Caso não encontre o ficheiro
      */
     public static void imprimirJogoMaisRecente() throws FileNotFoundException {
-        File scannerFicheiro = new File("GameStartF/GameStart_Vendas.csv");
-        Scanner sc = new Scanner(scannerFicheiro);
+        Scanner sc = importarFicheiro();
 
-        String[] array = new String[contadorLinhasArray()];
+        String[] array = new String[contarLinhasFicheiro()];
         String linha = sc.nextLine();
 
         while (sc.hasNextLine()) {
@@ -204,12 +218,11 @@ public class funcoesClient {
      * @throws FileNotFoundException Caso não encontre o ficheiro
      */
     public static void catalogoEditoras() throws FileNotFoundException {
-        File scannerFicheiro = new File("GameStartF/GameStart_Vendas.csv");
-        Scanner sc = new Scanner(scannerFicheiro);
+        Scanner sc = importarFicheiro();
         Scanner input = new Scanner(System.in);
 
-        String[] categorias = new String[contadorLinhasArray()];
-        String[] jogos = new String[contadorLinhasArray()];
+        String[] categorias = new String[contarLinhasFicheiro()];
+        String[] jogos = new String[contarLinhasFicheiro()];
         String linha = sc.nextLine();
         System.out.println("Editora a Pesquisar: ");
         String edi = input.nextLine();
@@ -255,12 +268,11 @@ public class funcoesClient {
      * @throws FileNotFoundException Caso não encontre o ficheiro
      */
     public static void catalogoCategoria() throws FileNotFoundException {
-        File scannerFicheiro = new File("GameStartF/GameStart_Vendas.csv");
-        Scanner sc = new Scanner(scannerFicheiro);
+        Scanner sc = importarFicheiro();
         Scanner input = new Scanner(System.in);
 
-        String[] editoras = new String[contadorLinhasArray()];
-        String[] jogos = new String[contadorLinhasArray()];
+        String[] editoras = new String[contarLinhasFicheiro()];
+        String[] jogos = new String[contarLinhasFicheiro()];
         String linha = sc.nextLine();
         System.out.println("Categoria a Pesquisar: ");
         String cat = input.nextLine();

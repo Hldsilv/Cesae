@@ -85,17 +85,18 @@ public class Menu {
                     primaEnter();
                     break;
                 case 4:
-                    System.out.println("********************** Jogo mais caro e clientes que o compraram **********************");
+                    System.out.println("********************* Jogo mais caro e clientes que o compraram *********************");
                     jogoMaisCaro();
                     primaEnter();
                     break;
 
                 case 5:
-                    System.out.println("**************** Melhor cliente ****************");
+                    System.out.println("********************************** Melhor cliente **********************************");
+                    melhorCliente();
                     primaEnter();
                     break;
                 case 6:
-                    System.out.println("**************** Pesquisa de vendas ****************\n");
+                    System.out.println("************************************************ Pesquisa de vendas ************************************************\n");
                     pesquisaVendas();
                     primaEnter();
                     break;
@@ -104,7 +105,7 @@ public class Menu {
                     break;
 
                 default:
-                    System.out.println("\n********* Opção Inválida *********\n");
+                    System.out.println("\n************************ Opção Inválida ************************\n");
                     break;
             }
         } while (opcao != 0);
@@ -126,7 +127,7 @@ public class Menu {
 
             switch (opcao) {
                 case 1:
-                    System.out.println("\n*************** Novo registo ***************\n");
+                    System.out.println("\n******************** Novo registo ********************\n");
                     registarCliente();
                     primaEnter();
 
@@ -145,7 +146,6 @@ public class Menu {
                     break;
 
                 case 4:
-                    System.out.println("\n*************** CATÁLOGO GRÁFICO DE JOGOS ***************\n");
                     menuCatalogoGrafico();
                     break;
 
@@ -179,13 +179,14 @@ public class Menu {
      * Menu que pergunta o tipo de utilizador(admin ou cliente) se for admin, tem que fazer login
      * @throws FileNotFoundException Caso não encontre os ficheiros
      */
-    public static void menuInicial() throws FileNotFoundException {
+    public static void menuInicial() throws FileNotFoundException, InterruptedException {
 
         Scanner input = new Scanner(System.in);
         int opcao;
         String login, password;
 
         do {
+            limparConsola();
             imprimirFicheiro("GameStartF/menuInicial.txt");
             opcao = input.nextInt();
 
@@ -200,14 +201,15 @@ public class Menu {
                     menuCliente();
                     break;
                 case 0:
-                    System.out.println("******************************************************************");
-                    System.out.println("\n\t\t\t\t\t\tA fechar o programa...\n");
-                    System.out.println("******************************************************************\n");
+                    System.out.println("\n\n\n\n");
+                    System.out.println("***************************************************************\n");
+                    fecharPrograma();
+                    System.out.printf("\n\n\n");
                     imprimirFicheiro("GameStartF/copyright.txt");
-                    System.out.println("\nObrigado e até à próxima :D");
+                    System.out.println("\n\n\t\t\t\t\t\tObrigado e até à próxima \uD83D\uDE01");
                     break;
                 default:
-                    System.out.println("\n***** Opção Inválida *****\n");
+                    System.out.println("\n*************** Opção Inválida ***************\n");
             }
         } while (opcao != 0);
     }
