@@ -4,7 +4,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
-import static GameStart.funcoesAuxiliares.contadorLinhasArray;
+import static GameStart.funcoesAuxiliares.*;
 
 
 public class funcoesAdmin {
@@ -38,6 +38,7 @@ public class funcoesAdmin {
         }
         if (!log) {
             System.out.println("\nLogin incorrecto!");
+            primaEnter();
         }
         sc.close();
         return log;
@@ -48,8 +49,7 @@ public class funcoesAdmin {
      * @throws FileNotFoundException Caso não encontre o ficheiro
      */
     public static void consultaVendas() throws FileNotFoundException {
-        File scannerFicheiro = new File("GameStartF/GameStart_Vendas.csv");
-        Scanner sc = new Scanner(scannerFicheiro);
+        Scanner sc = importarFicheiro();
 
         String linha = sc.nextLine();
 
@@ -79,23 +79,15 @@ public class funcoesAdmin {
      * @throws FileNotFoundException caso não encontre o ficheiro
      */
     public static void consultaClientes() throws FileNotFoundException {
-        File scannerFicheiro = new File("GameStartF/GameStart_Vendas.csv");
-        Scanner sc = new Scanner(scannerFicheiro);
+        Scanner sc = importarFicheiro();
 
-        String[] array = new String[contadorLinhasArray()];
+        String[] array = new String[contarLinhasFicheiro()];
         String linha = sc.nextLine();
 
         while (sc.hasNextLine()) {
             linha = sc.nextLine();
             String[] itensDaLinha = linha.split(";");
             String nomeCliente = itensDaLinha[2];
-
-//o while está a ler linha a linha e com isto (String nomeCliente = itensDaLinha[2]) temos o nome do cliente da linha.
-//Depois, entra no ciclo for e se a posição array[i] estiver vazia, preenche com o nome do cliente(nomeCliente) o array[i],
-//imprime o nome do cliente e dá break(sai do ciclo for), que volta ao ciclo while e que vai ler a proxima linha.
-//quando passa à proxima linha, fica com o nome dessa linha e dps entramos outra vez no ciclo for e se o array[i] não for null,
-// passa ao if seguinte que vai comparar se o nomeCliente é igual ao que está naquela posição do array.
-// se for, não faz nada e volta ao ciclo while e sempre assim, até ao final do ficheiro.
 
             for (int i = 0; i < array.length; i++) {
                 if (array[i] == null) {
@@ -108,7 +100,7 @@ public class funcoesAdmin {
                 }
             }
         }
-        System.out.println();
+        System.out.println("\n**********************************");
         sc.close();
     }
 
@@ -117,10 +109,9 @@ public class funcoesAdmin {
      * @throws FileNotFoundException Caso não encontre o ficheiro
      */
     public static void consultaCategorias() throws FileNotFoundException {
-        File scannerFicheiro = new File("GameStartF/GameStart_Vendas.csv");
-        Scanner sc = new Scanner(scannerFicheiro);
+        Scanner sc = importarFicheiro();
 
-        String[] array = new String[contadorLinhasArray()];
+        String[] array = new String[contarLinhasFicheiro()];
         String linha = sc.nextLine();
 
         while (sc.hasNextLine()) {
@@ -140,7 +131,7 @@ public class funcoesAdmin {
                 }
             }
         }
-        System.out.println();
+        System.out.println("\n************************************");
         sc.close();
     }
 
@@ -149,8 +140,7 @@ public class funcoesAdmin {
      * @throws FileNotFoundException Caso não encontre o ficheiro
      */
     public static void imprimirTotalVendas() throws FileNotFoundException {
-        File scannerFicheiro = new File("GameStartF/GameStart_Vendas.csv");
-        Scanner sc = new Scanner(scannerFicheiro);
+        Scanner sc = importarFicheiro();
 
         String linha =sc.nextLine();
         int  contador=0;
@@ -163,23 +153,26 @@ public class funcoesAdmin {
             total += vendas;
             contador++;
         }
-        System.out.println("\n************** TOTAL DE VENDAS **************\n");
-        System.out.println("Foram efectuadas "+contador+" vendas e o valor total é de: "+total+"€\n");
-        System.out.println("*********************************************\n");
+        imprimirHeader("totalVendas.txt");
+        System.out.println("\nForam efectuadas "+contador+" vendas e o valor total é de: "+total+"€\n");
+        System.out.println("*********************************************************************************************************************\n");
 
         sc.close();
     }
 
     /**
      * Pesquisa por um cliente dado o seu id e imprime o nome, contacto e email.
-     * @param idCliente argumento o idcliente que é inserido pelo user
-     * @throws FileNotFoundException
+     * @throws FileNotFoundException Caso não encontre o ficheiro
      */
-    public static void pesquisaCliente(int idCliente) throws FileNotFoundException {
-        File scannerFicheiro = new File("GameStartF/GameStart_Vendas.csv");
-        Scanner sc = new Scanner(scannerFicheiro);
+    public static void pesquisaCliente() throws FileNotFoundException {
+        Scanner sc = importarFicheiro();
+        Scanner input = new Scanner(System.in);
 
+        imprimirHeader("infClientes.txt");
+        System.out.println("\nIntroduza o ID do Cliente\n");
+        int idCliente= input.nextInt();
         String linha = sc.nextLine();
+        boolean encontrou=false;
 
         while (sc.hasNextLine()) {
             linha = sc.nextLine();
@@ -190,13 +183,14 @@ public class funcoesAdmin {
             String email = itensDaLinha[4];
 
             if (Integer.parseInt(id) == idCliente) {
-                System.out.println("\n************** Cliente **************\n");
-                System.out.println("\nNOME: " + nome+"\n");
-                System.out.println("\nCONTACTO: " + contacto+"\n");
-                System.out.println("\nEMAIL: " + email+"\n");
-                System.out.println("\n***********************************\n");
+                System.out.println("\nNOME: " + nome+"\n\nCONTACTO: " + contacto+"\n\nEMAIL: " + email+"\n");
+                System.out.println("\n*************************************\n");
+                encontrou=true;
                 break;
             }
+        }
+        if (!encontrou){
+            System.out.println("ID não encontrado");
         }
         sc.close();
     }
@@ -206,8 +200,7 @@ public class funcoesAdmin {
      * @throws FileNotFoundException Caso não encontre o ficheiro
      */
     public static void jogoMaisCaro() throws FileNotFoundException {
-        File scannerFicheiro = new File("GameStartF/GameStart_Vendas.csv");
-        Scanner sc = new Scanner(scannerFicheiro);
+        Scanner sc = importarFicheiro();
 
         String linha = sc.nextLine();
         double maisCaro=0, valor;
@@ -233,29 +226,74 @@ public class funcoesAdmin {
         System.out.println("\nO jogo mais caro é " +jogoMaisCaro +" com o valor de " + maisCaro+ "€.\n");
         System.out.println("---------------------------------------------------------------");
         System.out.println("\nOs clientes que compraram o " +jogoMaisCaro +" foram: " );
-        System.out.println(""+comprador);
+        System.out.println(comprador);
         System.out.println("\n*************************************************************************************\n");
 
     sc.close();
 }
 
+    /**
+     * Imprime o melhor cliente e os jogos que ele comprou
+     * @throws FileNotFoundException Caso não encontre o ficheiro
+     */
     public static void melhorCliente() throws FileNotFoundException {
-        File scannerFicheiro = new File("GameStartF/GameStart_Vendas.csv");
-        Scanner sc = new Scanner(scannerFicheiro);
+        Scanner sc = importarFicheiro();
 
+        String[][] matriz = new String[contarLinhasFicheiro()][4];
         String linha = sc.nextLine();
-        double soma=0, valorMaior=0;
-        String melhorCliente= "";
-        int melhorId=0;
+        double maiorValor = 0;
+        String melhorCliente = " ", nomeMelhorCliente = " ";
 
         while (sc.hasNextLine()) {
             linha = sc.nextLine();
-            String[] itensDaLinha= linha.split(";");
-            String idCliente = itensDaLinha[1];
-            double valor = Double.parseDouble(itensDaLinha[8]);
+            String[] itensDaLinha = linha.split(";");
+            String nome = itensDaLinha[2];
+            String contacto = itensDaLinha[3];
+            String email = itensDaLinha[4];
+            String valor = (itensDaLinha[8]);
+
+            for (int i = 0; i < matriz.length; i++) {
+                if (matriz[i][0] == null) {
+                    matriz[i][0] = nome;
+                    matriz[i][1] = contacto;
+                    matriz[i][2] = email;
+                    matriz[i][3] = valor;
+                    break;
+                }
+
+                if (matriz[i][0].equals(nome)) {
+                    //tenho que passar para double e depois para string porque a matriz é de strings
+                    double valorExistente = Double.parseDouble(matriz[i][3]);
+                    double valorNovo = Double.parseDouble(valor);
+                    double soma = valorExistente + valorNovo;
+                    matriz[i][3] = String.valueOf(soma);
+
+                    if (soma > maiorValor) {
+                        maiorValor = soma;
+                        nomeMelhorCliente= nome;
+                        melhorCliente = nome+ " | " +contacto+" | " +email;
+                    }
+                    break;
+                }
+            }
         }
-//fazer matriz //
-sc.close();
+        System.out.println("\n"+melhorCliente + " com o valor gasto de " + maiorValor+"€\n\nE os jogos comprados foram: ");
+
+
+        sc = importarFicheiro();
+        linha = sc.nextLine();
+
+        while (sc.hasNextLine()) {
+            linha = sc.nextLine();
+            String[] itensDaLinha = linha.split(";");
+            String nome = itensDaLinha[2];
+            String jogo = itensDaLinha[7];
+            if (nome.equals(nomeMelhorCliente)){
+                System.out.println("\t\t\t\t\t\t\t- "+jogo);
+            }
+        }
+        System.out.println("\n************************************************************************************");
+        sc.close();
     }
 
     /**
@@ -263,12 +301,13 @@ sc.close();
      * @throws FileNotFoundException se o ficheiro estiver errado
      */
     public static void pesquisaVendas() throws FileNotFoundException {
-        File scannerFicheiro = new File("GameStartF/GameStart_Vendas.csv");
-        Scanner sc = new Scanner(scannerFicheiro);
+        Scanner sc = importarFicheiro();
         Scanner input = new Scanner(System.in);
+
 
         System.out.println("Insira o Jogo que deseja pesquisar: ");
         String jogo = input.nextLine();
+        boolean encontrou=false;
         String linha = sc.nextLine();
 
         while (sc.hasNextLine()){
@@ -281,8 +320,13 @@ sc.close();
 
             if(jogo.equalsIgnoreCase(itensDaLinha[7])){
                 System.out.println("\nO jogo "+jogo+" foi comprado por "+nome+" | Contacto: "+contacto+" | Email: "+email+"\n");
+                encontrou=true;
             }
         }
+        if(!encontrou){
+            System.out.println("\nJogo não encontrado\n");
+        }
+        System.out.println("\n********************************************************************************************************************************************");
         sc.close();
     }
 }
