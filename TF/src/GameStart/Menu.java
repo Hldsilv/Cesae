@@ -59,7 +59,7 @@ public class Menu {
      */
     public static void menuAdmin() throws FileNotFoundException {
         Scanner input = new Scanner(System.in);
-        int opcao, idCliente;
+        int opcao;
 
         do {
             limparConsola();
@@ -120,7 +120,7 @@ public class Menu {
 
         do {
             limparConsola();
-            imprimirFicheiro("GamestartF/menuCliente.txt");
+            imprimirFicheiro("GameStartF/menuCliente.txt");
             opcao = input.nextInt();
             limparConsola();
 
@@ -202,12 +202,7 @@ public class Menu {
                     menuCliente();
                     break;
                 case 0:
-                    System.out.println("\n\n\n\n");
-                    System.out.println("***************************************************************\n");
-                    fecharPrograma();
-                    System.out.print("\n\n\n");
-                    imprimirFicheiro("GameStartF/copyright.txt");
-                    System.out.println("\n\n\t\t\t\t\t\tObrigado e até à próxima \uD83D\uDE01");
+                    encerrarPrograma();
                     break;
                 default:
                     opcaoInvalida();

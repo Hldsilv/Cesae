@@ -64,10 +64,10 @@ public class funcoesAuxiliares {
     /**
      * Importa o ficheiro de vendas.csv
      *
-     * @return scanner
+     * @return scanner que vai ser usado para ler o ficheiro vendas
      * @throws FileNotFoundException Caso não encontre o ficheiro
      */
-    public static Scanner importarFicheiro() throws FileNotFoundException {
+    public static Scanner importarFicheiroVendas() throws FileNotFoundException {
         return new Scanner(new File("GameStartF/Gamestart_Vendas.csv"));
 
     }
@@ -92,10 +92,12 @@ public class funcoesAuxiliares {
      * Animação ao fechar o programa
      * @throws InterruptedException caso entre em espera
      */
-    public static void fecharPrograma() throws InterruptedException {
+    public static void fecharProgramaAnimacao() throws InterruptedException {
 
         sleep(500);
-        System.out.print("\t\t\t\t\tA FECHAR O PROGRAMA");
+        System.out.println("\n\n\n\n***********************************************************************\n");
+        sleep(500);
+        System.out.print("\t\t\t\t\t\tA FECHAR O PROGRAMA");
         sleep(1000);
 
 
@@ -104,8 +106,15 @@ public class funcoesAuxiliares {
             System.out.print(".");
         }
         sleep(500);
-        System.out.println("\n\n***************************************************************\n");
+        System.out.println("\n\n***********************************************************************\n");
         sleep(2000);
+    }
+
+    public static void encerrarPrograma() throws InterruptedException, FileNotFoundException {
+        fecharProgramaAnimacao();
+        System.out.print("\n\n\n");
+        imprimirFicheiro("GameStartF/copyright.txt");
+        System.out.println("\n\n\t\t\t\t\t\tObrigado e até à próxima \uD83D\uDE01");
     }
 
     /**
@@ -118,11 +127,23 @@ public class funcoesAuxiliares {
 
     /**
      * imprime um ficheiro
-     * @param nomeCabecalho recebe o nome do ficheiro para imprimir
+     * @param ficheiroCabecalho recebe o nome do ficheiro para imprimir
      * @throws FileNotFoundException Caso não encontre o ficheiro
      */
-    public static void imprimirHeader(String nomeCabecalho) throws FileNotFoundException {
-        imprimirFicheiro("GameStartF/cabecalhos/"+nomeCabecalho);
+    public static void imprimirHeader(String ficheiroCabecalho) throws FileNotFoundException {
+        imprimirFicheiro("GameStartF/cabecalhos/"+ficheiroCabecalho);
+    }
+
+    /**
+     * imprime um catálogo gráfico
+     * @param ficheiro ficheiro onde está o catálogo gráfico
+     * @throws FileNotFoundException Caso não encontre o ficheiro
+     */
+    public static void ficheiroCatalogo(String ficheiro) throws FileNotFoundException {
+        imprimirFicheiro("GameStartF/CatalogoGrafico/"+ficheiro);
+        primaEnter();
+        limparConsola();
+
     }
 }
 

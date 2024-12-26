@@ -12,7 +12,7 @@ public class Main {
     System.out.println("\n\n\n\n");
     carregarPrograma();
     menuInicial();
-    contarLinhasFicheiro();
+
 
     }
 }

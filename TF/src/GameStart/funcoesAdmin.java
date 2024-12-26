@@ -49,7 +49,7 @@ public class funcoesAdmin {
      * @throws FileNotFoundException Caso não encontre o ficheiro
      */
     public static void consultaVendas() throws FileNotFoundException {
-        Scanner sc = importarFicheiro();
+        Scanner sc = importarFicheiroVendas();
 
         String linha = sc.nextLine();
 
@@ -76,10 +76,11 @@ public class funcoesAdmin {
 
     /**
      * Imprime todos os clientes sem duplicados
+     * se for null, escreve o nome, se não for, vê se o nome já foi escrito
      * @throws FileNotFoundException caso não encontre o ficheiro
      */
     public static void consultaClientes() throws FileNotFoundException {
-        Scanner sc = importarFicheiro();
+        Scanner sc = importarFicheiroVendas();
 
         String[] array = new String[contarLinhasFicheiro()];
         String linha = sc.nextLine();
@@ -109,7 +110,7 @@ public class funcoesAdmin {
      * @throws FileNotFoundException Caso não encontre o ficheiro
      */
     public static void consultaCategorias() throws FileNotFoundException {
-        Scanner sc = importarFicheiro();
+        Scanner sc = importarFicheiroVendas();
 
         String[] array = new String[contarLinhasFicheiro()];
         String linha = sc.nextLine();
@@ -140,7 +141,7 @@ public class funcoesAdmin {
      * @throws FileNotFoundException Caso não encontre o ficheiro
      */
     public static void imprimirTotalVendas() throws FileNotFoundException {
-        Scanner sc = importarFicheiro();
+        Scanner sc = importarFicheiroVendas();
 
         String linha =sc.nextLine();
         int  contador=0;
@@ -165,12 +166,13 @@ public class funcoesAdmin {
      * @throws FileNotFoundException Caso não encontre o ficheiro
      */
     public static void pesquisaCliente() throws FileNotFoundException {
-        Scanner sc = importarFicheiro();
+        Scanner sc = importarFicheiroVendas();
         Scanner input = new Scanner(System.in);
 
         imprimirHeader("infClientes.txt");
         System.out.println("\nIntroduza o ID do Cliente\n");
         int idCliente= input.nextInt();
+        input.nextLine();
         String linha = sc.nextLine();
         boolean encontrou=false;
 
@@ -200,7 +202,7 @@ public class funcoesAdmin {
      * @throws FileNotFoundException Caso não encontre o ficheiro
      */
     public static void jogoMaisCaro() throws FileNotFoundException {
-        Scanner sc = importarFicheiro();
+        Scanner sc = importarFicheiroVendas();
 
         String linha = sc.nextLine();
         double maisCaro=0, valor;
@@ -222,12 +224,13 @@ public class funcoesAdmin {
             } else if (valor == maisCaro && jogo.equals(jogoMaisCaro)) {
                 comprador += "\n" + nome;
         }
+
     }
         System.out.println("\nO jogo mais caro é " +jogoMaisCaro +" com o valor de " + maisCaro+ "€.\n");
         System.out.println("---------------------------------------------------------------");
         System.out.println("\nOs clientes que compraram o " +jogoMaisCaro +" foram: " );
         System.out.println(comprador);
-        System.out.println("\n*************************************************************************************\n");
+        System.out.println("\n*********************************************************************************************************\n");
 
     sc.close();
 }
@@ -237,7 +240,7 @@ public class funcoesAdmin {
      * @throws FileNotFoundException Caso não encontre o ficheiro
      */
     public static void melhorCliente() throws FileNotFoundException {
-        Scanner sc = importarFicheiro();
+        Scanner sc = importarFicheiroVendas();
 
         String[][] matriz = new String[contarLinhasFicheiro()][4];
         String linha = sc.nextLine();
@@ -262,7 +265,7 @@ public class funcoesAdmin {
                 }
 
                 if (matriz[i][0].equals(nome)) {
-                    //tenho que passar para double e depois para string porque a matriz é de strings
+                    //passo para double e depois para string porque a matriz é de strings
                     double valorExistente = Double.parseDouble(matriz[i][3]);
                     double valorNovo = Double.parseDouble(valor);
                     double soma = valorExistente + valorNovo;
@@ -280,7 +283,7 @@ public class funcoesAdmin {
         System.out.println("\n"+melhorCliente + " com o valor gasto de " + maiorValor+"€\n\nE os jogos comprados foram: ");
 
 
-        sc = importarFicheiro();
+        sc = importarFicheiroVendas();
         linha = sc.nextLine();
 
         while (sc.hasNextLine()) {
@@ -292,7 +295,7 @@ public class funcoesAdmin {
                 System.out.println("\t\t\t\t\t\t\t- "+jogo);
             }
         }
-        System.out.println("\n************************************************************************************");
+        System.out.println("\n***********************************************************************************************************");
         sc.close();
     }
 
@@ -301,7 +304,7 @@ public class funcoesAdmin {
      * @throws FileNotFoundException se o ficheiro estiver errado
      */
     public static void pesquisaVendas() throws FileNotFoundException {
-        Scanner sc = importarFicheiro();
+        Scanner sc = importarFicheiroVendas();
         Scanner input = new Scanner(System.in);
 
 

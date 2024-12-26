@@ -27,7 +27,7 @@ public class funcoesClient {
         String contacto = input.nextLine();
 
         while(contacto.length()<9){
-            System.out.println("Contacto invalido, tem que ter 9 dígitos");
+            System.out.println("Contacto invalido, insira pelo menos 9 dígitos");
             System.out.println("\nInsira Contacto: ");
             contacto = input.nextLine();
         }
@@ -35,12 +35,12 @@ public class funcoesClient {
         System.out.println("\nInsira Email: ");
         String email = input.nextLine();
         while(email.length()<5){
-            System.out.println("Email inválido, insira menos 5 caracteres");
+            System.out.println("Email inválido, insira pelo menos 5 caracteres");
             System.out.println("\nInsira Email: ");
             email = input.nextLine();
         }
 
-        //ver erros de input
+
         System.out.println("\n******************************************************");
         System.out.println("\nCliente Inserido com Sucesso: "+ nomeCliente + " | " + contacto + " | " + email+"\n");
     }
@@ -63,17 +63,15 @@ public class funcoesClient {
                 System.out.println("\nLugar vago : " + triangular+"\n");
             }
         }
-        System.out.println("********************************************************************************************************\n");
+        System.out.println("**********************************************************************************************************\n");
     }
 
     /**
-     * Imprime o catalogo de jogos sem duplicados. é criado um array para comparar se o jogo repete ou não e o ciclo for para fazer essa comparação
-     * se o jogo for igual, dá break e o ciclo começa de novo e ele vai comparar, é igual ao jogo[0], se for dá break e reincia o ciclo.
-     *
+     * Imprime o catalogo de jogos sem duplicados.
      * @throws FileNotFoundException Caso não encontre o ficheiro
      */
     public static void imprimirCatalogoJogos() throws FileNotFoundException {
-        Scanner sc = importarFicheiro();
+        Scanner sc = importarFicheiroVendas();
 
         String[] array = new String[contarLinhasFicheiro()];
         String linha = sc.nextLine();
@@ -116,58 +114,47 @@ public class funcoesClient {
             switch (opcao) {
                 case 1:
                     limparConsola();
+                    //Poderia ter criado uma função única com tudo o que tem dentro de cada case, mas uso diferentes números de asteriscos para ter uma apresentação mais bonita.
+                    //Foi por isso que só coloquei na função o caminho do catalogo grafico, premir enter e limpar consola.
                     System.out.println("************************ CALL OF DUTTY ************************\n");
-                    imprimirFicheiro("GameStartF/CatalogoGrafico/callofDuty.txt");
-                    primaEnter();
-                    limparConsola();
+                    ficheiroCatalogo("callOfDuty.txt");
+
                     break;
 
                 case 2:
                     limparConsola();
                     System.out.println("*************************************************** FIFA ***************************************************\n");
-                    imprimirFicheiro("GameStartF/CatalogoGrafico/fifa.txt");
-                    primaEnter();
-                    limparConsola();
+                    ficheiroCatalogo("fifa.txt");
                     break;
 
                 case 3:
                     limparConsola();
                     System.out.println("******** HOLLOW KNIGHT ********\n");
-                    imprimirFicheiro("GameStartF/CatalogoGrafico/hollowKnight.txt");
-                    primaEnter();
-                    limparConsola();
+                    ficheiroCatalogo("hollowKnight.txt");
                     break;
 
                 case 4:
                     limparConsola();
                     System.out.println("************* MINECRAFT *************\n");
-                    imprimirFicheiro("GameStartF/CatalogoGrafico/minecraft.txt");
-                    primaEnter();
-                    limparConsola();
+                    ficheiroCatalogo("minecraft.txt");
                     break;
 
                 case 5:
                     limparConsola();
                     System.out.println("************************ MORTAL KOMBAT ************************\n");
-                    imprimirFicheiro("GameStartF/CatalogoGrafico/mortalKombat.txt");
-                    primaEnter();
-                    limparConsola();
+                    ficheiroCatalogo("mortalKombat.txt");
                     break;
 
                 case 6:
                     limparConsola();
                     System.out.println("********** OVERCOOKED **********\n");
-                    imprimirFicheiro("GameStartF/CatalogoGrafico/overcooked.txt");
-                    primaEnter();
-                    limparConsola();
+                    ficheiroCatalogo("overcooked.txt");
                     break;
 
                 case 7:
                     limparConsola();
                     System.out.println("******************************** WITCHER 3 ********************************\n");
-                    imprimirFicheiro("GameStartF/CatalogoGrafico/witcher3.txt");
-                    primaEnter();
-                    limparConsola();
+                    ficheiroCatalogo("witcher3.txt");
                     break;
 
                 case 0: // Sair
@@ -186,7 +173,7 @@ public class funcoesClient {
      * @throws FileNotFoundException Caso não encontre o ficheiro
      */
     public static void imprimirJogoMaisRecente() throws FileNotFoundException {
-        Scanner sc = importarFicheiro();
+        Scanner sc = importarFicheiroVendas();
 
         String[] array = new String[contarLinhasFicheiro()];
         String linha = sc.nextLine();
@@ -212,7 +199,7 @@ public class funcoesClient {
                 break;
             }
         }
-        System.out.println("\n*******************************************");
+        System.out.println("\n********************************************************************************************************************************");
         sc.close();
     }
 
@@ -220,7 +207,7 @@ public class funcoesClient {
      * @throws FileNotFoundException Caso não encontre o ficheiro
      */
     public static void catalogoEditoras() throws FileNotFoundException {
-        Scanner sc = importarFicheiro();
+        Scanner sc = importarFicheiroVendas();
         Scanner input = new Scanner(System.in);
 
         String[] categorias = new String[contarLinhasFicheiro()];
@@ -276,7 +263,7 @@ public class funcoesClient {
      * @throws FileNotFoundException Caso não encontre o ficheiro
      */
     public static void catalogoCategoria() throws FileNotFoundException {
-        Scanner sc = importarFicheiro();
+        Scanner sc = importarFicheiroVendas();
         Scanner input = new Scanner(System.in);
 
         String[] editoras = new String[contarLinhasFicheiro()];
