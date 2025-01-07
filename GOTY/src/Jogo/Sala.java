@@ -55,15 +55,24 @@ public class Sala {
     public String getDescricaoOpcao2() {
         return descricaoOpcao2;
     }
-
+    /**
+     * Função para adicionar um inimigo à Sala
+     * @param inimigo inimigo a adicionar
+     */
     public void adicionarInimigo(NPC inimigo) {
         this.inimigo = inimigo;
     }
-
+    /**
+     * Função para obter o inimigo da Sala
+     * @return inimigo da Sala
+     */
     public NPC getInimigo() {
         return inimigo;
     }
-
+    /**
+     * Função para adicionar um item à Sala
+     * @param item item a adicionar
+     */
     public void adicionarItem(ItemHeroi item) {
         itensNoChao.add(item);
     }

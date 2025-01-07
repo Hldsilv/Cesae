@@ -8,6 +8,10 @@ import java.io.File;
 public class Audio {
     private static Clip currentClip;
 
+    /**
+     * Função para tocar música 
+     * @param caminho caminho do arquivo de música
+     */
     public static void playMusic(String caminho) {
         try {
             File audio = new File(caminho);

@@ -31,18 +31,27 @@ public class ItemHeroi {
     public ArrayList<String> getHeroisPermitidos() {
         return heroisPermitidos;
     }
-
+    /**
+     * Função para adicionar um heroi à lista de herois permitidos do item
+     * @param nomeHeroi nome do heroi a adicionar
+     */
     public void adicionarHeroiPermitido(String nomeHeroi) {
         if (!heroisPermitidos.contains(nomeHeroi)) {
             heroisPermitidos.add(nomeHeroi);
         }
     }
-
+    /**
+     * Função para saber se um heroi pode usar o item
+     * @param nomeHeroi nome do heroi a verificar
+     * @return true se o heroi pode usar o item, false caso contrário
+     */
     public boolean podeUsar(String nomeHeroi) {
         return heroisPermitidos.isEmpty() || heroisPermitidos.contains(nomeHeroi);
         // Se a lista de heróis permitidos estiver vazia, qualquer herói pode usar
     }
-
+    /**
+     * Função para mostrar os detalhes do item
+     */
     public void mostrarDetalhes() {
         System.out.print(Cor.ConsoleColors.CYAN_BOLD + "Nome do Item: " + Cor.ConsoleColors.RESET + String.format("%-25s", nome) + "|");
         System.out.print(Cor.ConsoleColors.YELLOW_BOLD + " Preço: " + Cor.ConsoleColors.RESET + preco + " ouro  |");

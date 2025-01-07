@@ -5,6 +5,7 @@ import AudioEcor.Cor;
 import Itens.ArmaPrincipal;
 import Itens.Consumivel;
 import Itens.ConsumivelCombate;
+import Jogo.Jogo;
 
 import java.io.FileNotFoundException;
 import java.util.Random;
@@ -28,7 +29,12 @@ public class Arqueiro extends Heroi {
     public Arqueiro(String nome, int maxHp, int hp, int forca, int nivel, int ouro, ArmaPrincipal armaPrincipal) {
         super(nome, maxHp, hp, forca, nivel, ouro, armaPrincipal);
     }
-
+    /**
+     * Função para atacar um NPC    
+     * @param npc NPC a atacar
+     * @throws FileNotFoundException caso o ficheiro não seja encontrado
+     * @throws InterruptedException caso a thread seja interrompida
+     */
     @Override
     public void atacar(NPC npc) throws FileNotFoundException, InterruptedException {
         System.out.println("\nO Arqueiro enfrenta o inimigo!\n");
@@ -74,7 +80,7 @@ public class Arqueiro extends Heroi {
                 case 3:
                     if (getInventario().isEmpty()) {
                         limparConsola();
-                        System.out.println("Não tens itens consumíveis!\n");
+                        System.out.println(Cor.ConsoleColors.RED_BOLD + "Não tens itens consumíveis!\n" + Cor.ConsoleColors.RESET);
                         mostrarDetalhesCombate(this, npc);
                         primaEnter();
                         continue;
@@ -98,7 +104,7 @@ public class Arqueiro extends Heroi {
                     }
 
                     if (escolha < 1 || escolha > getInventario().size()) {
-                        System.out.println("Escolha inválida!");
+                        System.out.println(Cor.ConsoleColors.RED_BOLD + "Escolha inválida!\n" + Cor.ConsoleColors.RESET);
                         primaEnter();
                         continue;
                     }
@@ -112,14 +118,14 @@ public class Arqueiro extends Heroi {
                                 danoConsumivel + " pontos de vida.\n");
                         getInventario().remove(escolha - 1);
                     } else {
-                        System.out.println("Este item não pode ser usado em combate!");
+                        System.out.println(Cor.ConsoleColors.RED_BOLD + "Este item não pode ser usado em combate!\n" + Cor.ConsoleColors.RESET);
                         primaEnter();
                         continue;
                     }
                     break;
 
                 default:
-                    System.out.println("Escolha inválida.");
+                    System.out.println(Cor.ConsoleColors.RED_BOLD + "Escolha inválida.\n" + Cor.ConsoleColors.RESET );
                     continue;
             }
 
@@ -138,12 +144,45 @@ public class Arqueiro extends Heroi {
             }
             if (getHp() <= 0) {
                 Audio.stopMusic();
-                System.out.println("\nFoste derrotado pelo "+ npc.getNome()+"!\n");
-                System.out.println("Fim de jogo!");
-                primaEnter();
-                encerrarPrograma();
-                fecharProgramaAnimacao();
-                System.exit(0);  // Encerra o programa
+                System.out.println(Cor.ConsoleColors.RED_BOLD + "\nFoste derrotado pelo "+ npc.getNome()+"!\n" + Cor.ConsoleColors.RESET);
+                
+                System.out.println(Cor.ConsoleColors.RED_BOLD + "\nFoste derrotado pelo "+ npc.getNome()+"!\n" + Cor.ConsoleColors.RESET);
+                System.out.println("O que desejas fazer?");
+                System.out.println(Cor.ConsoleColors.GREEN_BOLD + "[1] Tentar novamente com o mesmo personagem");
+                System.out.println(Cor.ConsoleColors.BLUE_BOLD + "[2] Criar novo personagem");
+                System.out.println(Cor.ConsoleColors.RED_BOLD + "[3] Sair do jogo" + Cor.ConsoleColors.RESET);
+                
+                int escolha = input.nextInt();
+                
+                switch (escolha) {
+                    case 1:
+                        setHp(getVidaMax());
+                        getArmaPrincipal().setUsouAtaqueEspecial(false);
+                        setOuro(15);
+                        setNivel(1);
+                        Audio.stopMusic();
+                        Jogo jogoAtual = new Jogo();
+                        jogoAtual.iniciarAventura(this);
+                        Audio.playMusic("Ficheiros/Audio/Skyrim.wav");
+                        System.exit(0); 
+                        
+                    case 2:
+                        // Criar novo personagem
+                        Jogo novoJogo = new Jogo();
+                        Heroi novoHeroi = novoJogo.criarPersonagem();
+                        novoJogo.iniciarAventura(novoHeroi);
+                        System.exit(0);
+                        
+                    case 3:
+                        // Encerrar o programa
+                        encerrarPrograma();
+                        System.exit(0);
+                        
+                    default:
+                        System.out.println("Opção inválida. O jogo será encerrado.");
+                        encerrarPrograma();
+                        System.exit(0);
+                }
             }
         }
     }

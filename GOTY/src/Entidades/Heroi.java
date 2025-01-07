@@ -52,7 +52,10 @@ public class Heroi extends Entidade{
     public ArrayList<Consumivel> getInventario() {
         return inventario;
     }
-
+    /**
+     * Função para gastar ouro
+     * @param quantidade quantidade de ouro a gastar
+     */
     public void gastarOuro(int quantidade) {
         if (ouro >= quantidade) {
             ouro -= quantidade;
@@ -60,10 +63,18 @@ public class Heroi extends Entidade{
             System.out.println("Ouro insuficiente.");
         }
     }
+    /**
+     * Função para ganhar ouro
+     * @param quantidade quantidade de ouro a ganhar
+     */
     public void ganharOuro(int quantidade) {
         ouro += quantidade;
     }
 
+    /**
+     * Função para atribuir a arma principal
+     * @param armaPrincipal arma principal a atribuir
+     */
     public void setArmaPrincipal(ArmaPrincipal armaPrincipal) {
         this.armaPrincipal = armaPrincipal;
     }
@@ -75,11 +86,19 @@ public class Heroi extends Entidade{
     public void setOuro(int ouro) {
         this.ouro = ouro;
     }
-
+    /**
+     * Função para atacar um NPC
+     * @param npc NPC a atacar
+     * @throws FileNotFoundException caso o ficheiro não seja encontrado
+     * @throws InterruptedException caso a thread seja interrompida
+     */
     public void atacar(NPC npc) throws FileNotFoundException, InterruptedException {
         getArmaPrincipal().resetarAtaqueEspecial();
     }
-
+    /**
+     * Função para ganhar experiência,ouro,nivel,hp e força depois de derrotar um NPC
+     * @param npc NPC derrotado
+     */
     public void seGanhar(NPC npc) {
         System.out.println("\n"+Cor.ConsoleColors.GREEN_BACKGROUND + "Parabéns! Derrotaste o " + npc.getNome() + "!" + Cor.ConsoleColors.RESET);
         setOuro(getOuro() + npc.getOuro());
@@ -89,7 +108,9 @@ public class Heroi extends Entidade{
         primaEnter();
         limparConsola();
     }
-
+    /**
+     * Função para usar uma poção
+     */ 
     public void usarPocao() {
         if (inventario.isEmpty()) {
             System.out.println("Você não tem poções no inventário!");
@@ -144,7 +165,9 @@ public class Heroi extends Entidade{
         // Remover a poção do inventário
         inventario.remove(indiceEscolhido);
     }
-
+    /**
+     * Função para mostrar os detalhes do Heroi
+     */
     @Override
     public void mostrarDetalhes() {
         super.mostrarDetalhes();

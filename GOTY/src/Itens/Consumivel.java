@@ -10,7 +10,9 @@ public class Consumivel extends ItemHeroi {
     public Consumivel(String nome, int preco) {
         super(nome, preco);
     }
-
+    /**
+     * Função para mostrar os detalhes do Consumivel
+     */
     @Override
     public void mostrarDetalhes() {
         super.mostrarDetalhes();

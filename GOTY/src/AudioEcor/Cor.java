@@ -1,6 +1,9 @@
 package AudioEcor;
 
 public class Cor {
+    /** 
+     * Classe para definir cores na consola
+     */
     public class ConsoleColors {
         // Reset
         public static final String RESET = "\033[0m";  // Text Reset

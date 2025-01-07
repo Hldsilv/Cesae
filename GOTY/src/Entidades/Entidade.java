@@ -49,7 +49,10 @@ public class Entidade {
     public void setForca(int forca) {
         this.forca = forca;
     }
-
+    /**
+     * Função para curar uma Entidade
+     * @param pontos pontos a curar
+     */
     public void curar(int pontos) {
 
         this.hp += pontos;
@@ -57,10 +60,17 @@ public class Entidade {
             this.hp = this.maxHp;
         }
     }
+    /**
+     * Função para verificar se uma Entidade está viva
+     * @return true se a Entidade está viva, false caso contrário
+     */
     public boolean estaVivo() {
         return this.hp > 0;
     }
 
+    /**
+     * Função para mostrar os detalhes de uma Entidade
+     */ 
     public void mostrarDetalhes() {
         System.out.println(Cor.ConsoleColors.CYAN_BOLD + "Classe: " + Cor.ConsoleColors.RESET + this.nome);
         System.out.println(Cor.ConsoleColors.RED_BOLD + "Vida: " + Cor.ConsoleColors.RESET + this.hp + " | " + this.maxHp);

@@ -54,7 +54,7 @@ public class funcAux {
     }
     /**
      * Animação a carregar o programa, delay a aparecer o texto e os pontos finais.
-     * @throws InterruptedException Caso entre em espera
+     * @throws InterruptedException caso a thread seja interrompida
      */
     public static void carregarPrograma() throws InterruptedException, FileNotFoundException {
         imprimirFicheiro("Ficheiros/ascii/inicio.txt");
@@ -72,7 +72,7 @@ public class funcAux {
     }
     /**
      * Animação ao fechar o programa
-     * @throws InterruptedException caso entre em espera
+     * @throws InterruptedException caso a thread seja interrompida
      */
     public static void fecharProgramaAnimacao() throws InterruptedException {
 
@@ -91,8 +91,11 @@ public class funcAux {
         sleep(2000);
     }
 
-    //*
-    // Função para encerrar o programa
+    /**
+     * Imprime o ficheiro copyright para encerrar o programa
+     * @throws InterruptedException caso a thread seja interrompida
+     * @throws FileNotFoundException caso o ficheiro não seja encontrado
+     */
     public static void encerrarPrograma() throws InterruptedException, FileNotFoundException {
         fecharProgramaAnimacao();
         System.out.print("\n\n\n");

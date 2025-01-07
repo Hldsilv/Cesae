@@ -25,19 +25,29 @@ public class ArmaPrincipal extends ItemHeroi {
     public int getAtaqueEspecial() {
         return ataqueEspecial;
     }
-
+    /**
+     * Função para saber se o heroi usou o ataque especial
+     * @return true se o heroi usou o ataque especial, false caso contrário
+     */
     public boolean isUsouAtaqueEspecial() {
         return usouAtaqueEspecial;
     }
-
+    /**
+     * Função para dizer se o heroi usou o ataque especial
+     * @param usouAtaqueEspecial true se o heroi usou o ataque especial, false caso contrário
+     */
     public void setUsouAtaqueEspecial(boolean usouAtaqueEspecial) {
         this.usouAtaqueEspecial = usouAtaqueEspecial;
     }
-
+    /**
+     * Função para resetar o ataque especial
+     */
     public void resetarAtaqueEspecial() {
         this.usouAtaqueEspecial = false;
     }
-
+    /**
+     * Função para mostrar os detalhes da arma
+     */
     @Override
     public void mostrarDetalhes(){
         super.mostrarDetalhes();

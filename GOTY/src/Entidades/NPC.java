@@ -24,7 +24,9 @@ public class NPC extends Entidade {
     public void setOuro(int ouro) {
         this.ouro = ouro;
     }
-
+    /**
+     * Função para mostrar os detalhes do NPC
+     */
     @Override
     public void mostrarDetalhes() {
         super.mostrarDetalhes();

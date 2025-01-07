@@ -26,7 +26,9 @@ public class Pocao extends Consumivel {
     public int getAumentoForca() {
         return aumentoForca;
     }
-
+    /**
+     * Função para mostrar os detalhes da Pocao
+     */
     @Override
     public void mostrarDetalhes() {
         super.mostrarDetalhes();

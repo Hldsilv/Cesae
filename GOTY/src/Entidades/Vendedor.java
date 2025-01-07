@@ -26,20 +26,26 @@ public String getNome(){
         return nome;
 }
 
-    public ArrayList<ItemHeroi> getLoja() {
+public ArrayList<ItemHeroi> getLoja() {
         return loja;
     }
-
+    /**
+     * Função para imprimir a loja
+     */ 
     public void imprimirLoja() {
         System.out.println(nome + " está a vender os seguintes itens:\n");
-
+        Collections.shuffle(loja);
         for (int i = 0; i < loja.size() && i < 10; i++) {
             System.out.print(i+1+ "-");
             loja.get(i).mostrarDetalhes();
         }
     }
 
-    // Vende um item para o herói
+    /**
+     * Função para vender um item para um Heroi
+     * @param heroi Heroi a vender o item
+     * @param indice indice do item a vender(-1 porque começa a contar do 0)
+     */
     public void vender(Heroi heroi, int indice) {
         if (indice < 1 || indice > loja.size()) {
             System.out.println("Item inválido.");
@@ -76,9 +82,22 @@ public String getNome(){
             System.out.println("Ouro insuficiente para comprar " + itemEscolhido.getNome() + ".");
         }
     }
-
+    /**
+     * Função para adicionar um item à loja
+     * @param item item a adicionar
+     */
     public void adicionarItem(ItemHeroi item) {
         loja.add(item);
+    }
+
+    /**
+     * Função para adicionar uma arma à loja com restrição de herói
+     * @param arma arma a adicionar
+     * @param heroiPermitido heroi permitido a usar a arma
+     */
+    public void adicionarArmaRestrita(ArmaPrincipal arma, String heroiPermitido) {
+        arma.adicionarHeroiPermitido(heroiPermitido);
+        loja.add(arma);
     }
 
 }
